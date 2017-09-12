@@ -10,7 +10,7 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ●	Pedro Vinicius de Lima Santos (pvls) - Desenvolvedor e Desenvolvedor de Testes;
 
-●	Renata Kelly da Silva Amorim (rkdsa) - Desenvolvedor e Gerente de Projeto.
+●	Renata Kelly da Silva Amorim (rkdsa) - Desenvolvedora e Gerente de Projeto.
 
 <h2>Descrição:</h2>
 
