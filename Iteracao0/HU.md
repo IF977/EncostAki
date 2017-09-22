@@ -15,7 +15,7 @@ Para que todos os outros usuários possam visualizar e acompanhar junto comigo
 
 Como usuário cadastrado
 
-Quero poder postar fotos do estado em que se encontra a barreira/encosta próxima de onde resido
+Quero poder postar fotos e como está o estado da barreira/encosta próxima de onde resido
 
 Para que o problema tenha visibilidade e possa chamar atenção das autoridades competentes
 
@@ -26,7 +26,7 @@ Como usuário cadastrado
 
 Quero poder comentar em fotos e localizações que foram colocadas
 
-Para que eu possa interagir com a comunidade quanto aos problemas daquele local
+Para que eu possa interagir com a comunidade quanto aos problemas daquela região
 
 ```
 
