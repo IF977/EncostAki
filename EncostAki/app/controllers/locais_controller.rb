@@ -1,2 +1,0 @@
-class LocaisController < ApplicationController
-end
