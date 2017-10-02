@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @user.cpf %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @user.cep %>
+</p>
+
+<p>
+  <strong>Complement:</strong>
+  <%= @user.complement %>
+</p>
+
+<p>
+  <strong>House number:</strong>
+  <%= @user.house_number %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

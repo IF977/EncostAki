@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cpf: 
+  username: MyString
+  cep: 
+  complement: MyString
+  house_number: 
+
+two:
+  name: MyString
+  cpf: 
+  username: MyString
+  cep: 
+  complement: MyString
+  house_number: 
