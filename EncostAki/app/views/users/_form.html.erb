@@ -1,10 +1,10 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,30 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
   </div>
+
   <div class="field">
-    <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf, id: :user_cpf %>
   </div>
+
   <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :user_username %>
   </div>
+
   <div class="field">
-    <%= f.label :cep %><br>
-    <%= f.text_field :cep %>
+    <%= form.label :cep %>
+    <%= form.text_field :cep, id: :user_cep %>
   </div>
+
   <div class="field">
-    <%= f.label :complement %><br>
-    <%= f.text_area :complement %>
+    <%= form.label :complement %>
+    <%= form.text_field :complement, id: :user_complement %>
   </div>
+
   <div class="field">
-    <%= f.label :house_number %><br>
-    <%= f.text_field :house_number %>
+    <%= form.label :house_number %>
+    <%= form.text_field :house_number, id: :user_house_number %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

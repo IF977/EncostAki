@@ -22,15 +22,12 @@
             center: new google.maps.LatLng(-8.119617,-34.90474369999998),
             mapTypeId: 'terrain'
           });
-
           var script = document.createElement('script');
-
           script.src = 'http://entendesse.com.br/dev/areasderisco.json';
           //script.src = 'http://dados.recife.pe.gov.br/dataset/5f661a7c-3ecb-4e92-a56e-1a5bcaa7afef/resource/4ae34511-8066-4b97-a4a3-9a2706eda586/download/tabs-reg-sul-pontos-cood-geo-lat-long-json.geojson';
           //script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
           document.getElementsByTagName('head')[0].appendChild(script);
         }
-
         window.eqfeed_callback = function(results) {
           for (var i = 0; i < results.features.length; i++) {
             var coords = results.features[i].geometry.coordinates;

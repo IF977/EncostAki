@@ -1,49 +1,48 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
   end
 
   test "should get index" do
-    get :index
+    get users_url
     assert_response :success
-    assert_not_nil assigns(:users)
   end
 
   test "should get new" do
-    get :new
+    get new_user_url
     assert_response :success
   end
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { cep: @user.cep, complement: @user.complement, cpf: @user.cpf, house_number: @user.house_number, name: @user.name, username: @user.username }
+      post users_url, params: { user: { cep: @user.cep, complement: @user.complement, cpf: @user.cpf, house_number: @user.house_number, name: @user.name, username: @user.username } }
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to user_url(User.last)
   end
 
   test "should show user" do
-    get :show, id: @user
+    get user_url(@user)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @user
+    get edit_user_url(@user)
     assert_response :success
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { cep: @user.cep, complement: @user.complement, cpf: @user.cpf, house_number: @user.house_number, name: @user.name, username: @user.username }
-    assert_redirected_to user_path(assigns(:user))
+    patch user_url(@user), params: { user: { cep: @user.cep, complement: @user.complement, cpf: @user.cpf, house_number: @user.house_number, name: @user.name, username: @user.username } }
+    assert_redirected_to user_url(@user)
   end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do
-      delete :destroy, id: @user
+      delete user_url(@user)
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to users_url
   end
 end
