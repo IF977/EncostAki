@@ -1,10 +1,11 @@
 Feature: Cadastro de usuários
   As a User
-  I want to be able to register
-  To be able to check the risk areas of my region
+  I would like to create information with my information
+  To be able to check the Encostaki application features
   
   Scenario: Tela de cadastro
-    Given I am on the registration screen
-    When click on the “registrar” button 
-    Then I should see the risk areas of my region on a map
+    Given I am on the home page
+    When click on the “cadastrar” button 
+    And I visit /users link
+    Then I should see Sign up
   
