@@ -5,7 +5,7 @@ Feature: Cadastro de usuários
   
   Scenario: Tela de cadastro
     Given I am on the home page
-    When click on the “cadastrar” button 
+    When click on the Cadastrar button 
     And I visit /users link
     Then I should see Sign up
   
