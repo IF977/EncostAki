@@ -31,7 +31,7 @@ nav#menu a {
 }
 
 nav#menu a:hover {
-	color: black;
+	color: white;
 }
 
 nav#menu h1{
@@ -48,11 +48,19 @@ div#centro {
 	height: 500px;
 	background-color: #27408B;
 	border-radius: 5px;
-}div#centro h2{
+}
+
+div#centro p{
+	color: white;
+}
+
+
+div#centro h2{
 	margin-top: 0;
 	padding-top: 100px;
 	padding-left: auto;
 	padding-right: auto;
+	color: white;
 }
 
 
