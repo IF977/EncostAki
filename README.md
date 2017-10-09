@@ -1,4 +1,4 @@
-<b><h1>EncostAki</b></h1>
+<img src="https://lh3.googleusercontent.com/uMqrZP07lB39ElnpOraI85xx4D_4aJx1oWFhRGT0Osgv2R0CIZmgFi3xjqWcBsPM5idJhb6hBAaaM-E=w1920-h925"/>
 
 
 
@@ -14,7 +14,7 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ●	Hugo Leonardo Gomes de Oliveira (hlgo) - Desenvolvedor 
 
-Por enquanto a app está rodando em: https://encostaki-1-pvls.c9users.io/
+
 
 <h2>Descrição:</h2>
 
