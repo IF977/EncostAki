@@ -46,7 +46,7 @@ Término da Iteração
 ### O que não foi feito:
 
 ```sh
-Tudo que estava planejado para essa iteração foi realizado.
+Não conseguimos implantar em Heroku.
 ```
 ### Lições aprendidas:
 ```sh
