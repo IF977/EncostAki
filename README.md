@@ -14,6 +14,8 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ●	Hugo Leonardo Gomes de Oliveira (hlgo) - Desenvolvedor 
 
+Por enquanto a app está rodando em: https://encostaki-1-pvls.c9users.io/
+
 <h2>Descrição:</h2>
 
 É uma aplicação Web, SaaS, que tem como objetivo auxiliar a população a monitorar áreas de risco, deslizamento e chamados abertos durante o período dos últimos 2 anos (2015-2017), a partir dos dados obtidos no site de dados do Recife (http://dados.recife.pe.gov.br). Realiza busca na base de dados no local informado pelo usuário, gera dados no mapa com localização dos pontos de risco, informa sobre chamados abertos para colocação de lonas e o grau de vulnerabilidade da região.
