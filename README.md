@@ -1,4 +1,4 @@
-<img src="https://lh3.googleusercontent.com/uMqrZP07lB39ElnpOraI85xx4D_4aJx1oWFhRGT0Osgv2R0CIZmgFi3xjqWcBsPM5idJhb6hBAaaM-E=w1920-h925"/>
+<img src="http://i1096.photobucket.com/albums/g327/xDarkslayer/logo%20Final_zpsaseowunu.png?t=1507553603"/>
 
 
 
@@ -10,10 +10,11 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ●	Pedro Vinicius de Lima Santos (pvls) - Desenvolvedor e Desenvolvedor de Testes;
 
-●	Renata Kelly da Silva Amorim (rkdsa) - Desenvolvedora e Gerente de Projeto.
+●	Renata Kelly da Silva Amorim (rkdsa) - Desenvolvedora e Gerente de Projeto;
 
-●	Hugo Leonardo Gomes de Oliveira (hlgo) - Desenvolvedor 
+●	Hugo Leonardo Gomes de Oliveira (hlgo) - Desenvolvedor;
 
+●	Gustavo Bernardo Lopes (gbl3) - Desenvolvedor e Desenvolvedor de Testes.
 
 
 <h2>Descrição:</h2>
