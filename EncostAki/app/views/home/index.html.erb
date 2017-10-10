@@ -3,11 +3,12 @@
 <head>
 	<meta charset="utf-8">
     <title>Encostaki</title>
+    <link rel="icon" href="logopinfinal"/>
 
-    <link rel="icon" href="EncostAki/app/assets/images/logopinfinal.png" type="image/x-icon"/>
-    <link href="encostaki-1/EncostAki/app/views/home/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="encostaki-1/EncostAki/app/views/home/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/EncostAki/app/assets/stylesheets/home.scss">
+    <%= image_tag "logopinfinal" %>
+    <%= stylesheet_link_tag "css/bootstrap" %>
+   
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
 
 
@@ -22,14 +23,14 @@
 
     	   <hgroup>
     	   <div class="container">	
-    	   <h1><img src="/EncostAki/app/assets/images/logofinal.png" width="200" height="150"></h1>
+    	   <h1><%= image_tag "logofinal" %></h1>
     	   </div>
     	   </hgroup>
 
     	   <nav id="menu">
 		  <h1>Menu Principal</h1>
  		 <ul>
- 		 <li><a href="#">Home</a></li>
+ 		 <li><a href="/home">Home</a></li>
  		 <li><a href="/users">Cadastrar</a></li>
  		 <li><a href="/login">Login</a></li>
  		 <li><a href="#">Chamados</a></li>

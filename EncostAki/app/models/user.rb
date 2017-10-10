@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     
-    validates :name, presence: true
-    validates :cpf, presence: true
+    validates :Fname, presence: true
+    validates :Mname, presence: true
 
     def descricao_completa
-        "Nome: #{self.name}, CPF: #{self.cpf}, Usuário: #{self.username}, CEP: #{self.cep}, Nº: #{self.house_number}, Complemento: #{self.complement}"
+        "First Name: #{self.Fname}, Middle Name: #{self.Mname}, Usuário: #{self.username}, Senha: #{self.senha}"
     end
 end

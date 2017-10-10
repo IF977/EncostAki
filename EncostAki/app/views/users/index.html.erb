@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Users List</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Cpf</th>
+      <th>First Name</th>
+      <th>Middle Name</th>
       <th>Username</th>
-      <th>Cep</th>
-      <th>Complement</th>
-      <th>House number</th>
+      <th>Senha</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +16,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.cpf %></td>
+        <td><%= user.Fname %></td>
+        <td><%= user.Mname %></td>
         <td><%= user.username %></td>
-        <td><%= user.cep %></td>
-        <td><%= user.complement %></td>
-        <td><%= user.house_number %></td>
+        <td><%= user.senha %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
+  <strong>First Name:</strong>
+  <%= @user.Fname %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
-  <%= @user.cpf %>
+  <strong>Middle Name:</strong>
+  <%= @user.Mname %>
 </p>
 
 <p>
@@ -16,18 +16,8 @@
 </p>
 
 <p>
-  <strong>Cep:</strong>
-  <%= @user.cep %>
-</p>
-
-<p>
-  <strong>Complement:</strong>
-  <%= @user.complement %>
-</p>
-
-<p>
-  <strong>House number:</strong>
-  <%= @user.house_number %>
+  <strong>Senha:</strong>
+  <%= @user.senha %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
