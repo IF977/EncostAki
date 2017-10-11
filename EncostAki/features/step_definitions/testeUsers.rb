@@ -3,7 +3,7 @@ Given(/^I am on the home page$/) do
 end
 
 When(/^I click on the Cadastrar button$/) do
-    visit('/users')
+    click_button(Cadastrar)
 end
 
 Then(/^I should see Sign up$/) do
