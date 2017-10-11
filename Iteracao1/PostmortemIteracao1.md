@@ -48,6 +48,23 @@ Término da Iteração
 ```sh
 Não conseguimos implantar em Heroku.
 ```
+
+### O que está planejado para próxima iteração
+| Atividade | Responsável |
+| ------ | ------ |
+|Continuação do desenvolvimento|Time|
+|Continuar estudo de rails|Time|
+|Criar página de cadastro|Eric|
+|Desenvolver novos testes|Gustavo e Pedro|
+|Realização de testes|Pedro e Hugo|
+|Melhoria na interface|Eric e Gustavo|
+|Melhoria no uso de bootstrap|Eric e Gustavo|
+|Adicionar funcionalidades ao mapa| Eric |
+|Entender o funcionamento GeoJson|Hugo|
+|Estudar seed database rails|Time|
+|Criar novos scaffolds|Renata|
+|Postmortem iteração 2|Renata|
+
 ### Lições aprendidas:
 ```sh
 Reuniões semanais são muito importantes para alinhamento e delegação de tarefas, assim como acompanhamento do que foi feito;
