@@ -1,79 +1,43 @@
 /* Page de Login */
 
 
-/* Formatação do Menu */
-
-nav#menu{
-	display: inline;
-}
-
-nav#menu ul {
-	list-style: none;
-	text-transform: capitalize;
-	margin-right: 100px;
-}
-
-nav#menu li{
-	display: inline-block;
-	background-color: #65737e;
-	padding: 7px;
-	border-radius: 5px;
-	transition: background-color 1s;
-}
-
-nav#menu li:hover {
-	background-color: #FFFFFF
-}
-
-nav#menu a {
-	color: #000000;
-	text-decoration: none;
-}
-
-nav#menu a:hover {
-	color: white;
-}
-
-nav#menu h1{
-	display: none;
-}
-
-
-
-
 /* Corpo */
-
+@font-face {
+	font-family: 'Bree Serif', serif;
+}
 
 div#centro {
 	height: 500px;
-	background-color: #27408B;
+	background-color: #5C3317;
 	border-radius: 5px;
+	
 }
 
 div#centro p{
 	color: white;
+	font: 18px Bree Serif, Arial, Tahoma, Sans-serif;
 }
 
 
-div#centro h2{
-	margin-top: 0;
-	padding-top: 100px;
-	padding-left: auto;
-	padding-right: auto;
+div#centro h1{
+	margin-top: 5px;
+	padding-top: 60px;	
 	color: white;
+	font: 35px Bree Serif, Arial, Tahoma, Sans-serif;
 }
 
+div#centro h2{	
+	margin-left: 160px;
+	height: 80px;
+	width: 60px;
+	
 
+}
 
-
-
-/* Bloco login*/
-
-
-
-
-
-
+div#centro button{
+	font: 15px Bree Serif, Sans-serif;
+	width: 180px;
+}
 /* Rodapé só pelo lulz */
 
 footer#rodape {

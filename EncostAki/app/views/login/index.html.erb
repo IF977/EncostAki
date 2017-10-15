@@ -3,29 +3,32 @@
 <head>
 	<meta charset="utf-8">
     <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="icon" href="imgs\logopinfinal.png" type="image/x-icon" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	 <%= stylesheet_link_tag "css/bootstrap" %>
-    <link href="/EncostAki/app/assets/stylesheets/login.scss" type="text/css"  rel="stylesheet">
+	<%= stylesheet_link_tag "css/bootstrap" %>
+    <link href="css/login.css" type="text/css"  rel="stylesheet">
 </head>
 
 
 <body>
 	<div class="container-fluid">
-		<div class="row" id="site">
-			<div class="col-md-4">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
 				<div id="esquerda-l">
 				</div>
 			</div>
-			<div class="col-md-4 text-center">
-				<div id="centro">
-					<h2>Login</h2>
+			<div class="col-md-4 text-center col-sm-4 text-center">
+				<div id="centro">		
+					<h1>Login</h1>
+					<h2><%= image_tag "logopinfinal",id:"logo"%></h2>																		
 					<p>Usuário:</p>
 					<input type="text" name="login">
 					<p>Senha:</p>
 					<input type="password" name="senha">					
-					<p>Não possui conta?<a href="/users">Cadastre-se</a></p>
-					<button type="submit" name="enviar">Entrar</button>
+					<p>Não possui conta?<a href="/users"> Cadastre-se</a></p>
+					<button type="button" class="btn btn-warning">Entrar</button>
+						
 				</div>
 			</div>
 
