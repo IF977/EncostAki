@@ -1,0 +1,26 @@
+.login {
+  background-color: #5C3317;
+  color: white;
+  text-align: center;
+  font-family: 'Bree Serif', serif;
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
+}
+.form-group input{
+  width: 50%;
+  margin: auto;
+}
+#logopin{
+  width: 2em;
+  margin-right: -150px;
+  margin-top: -80px;
+}
+#submitButton{
+  /* margin-bottom: 10px;*/
+  width: 50%;
+  height: 50px;
+}
+body{
+  background-image: image("app/assets/images/logofinal.png");
+}
