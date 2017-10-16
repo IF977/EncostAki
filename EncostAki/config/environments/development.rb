@@ -4,6 +4,8 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+  #config.action_mailers.default_url_options = { :host => 'encostaki-1-pvls.c9.io' }
+  
   config.cache_classes = false
 
   # Do not eager load code on boot.
