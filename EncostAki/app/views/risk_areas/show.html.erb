@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Regional:</strong>
+  <%= @risk_area.regional %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @risk_area.endereco %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @risk_area.bairro %>
+</p>
+
+<p>
+  <strong>Localidade:</strong>
+  <%= @risk_area.localidade %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @risk_area.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_risk_area_path(@risk_area) %> |
+<%= link_to 'Back', risk_areas_path %>

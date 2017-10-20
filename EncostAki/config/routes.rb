@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :users
   resources :login
   
-  get 'importar' => "risk_areas#csv_import"
+  post 'importar' => 'risk_areas#csv_import'
   
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
