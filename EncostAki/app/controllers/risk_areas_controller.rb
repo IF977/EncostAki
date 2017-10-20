@@ -8,32 +8,30 @@ class RiskAreasController < ApplicationController
   def index
     @risk_areas = RiskArea.all
   end
+  
+  # GET /risk_areas/new
+  def new
+    @risk_area = RiskArea.new
+  end 
 
-
-  #Importar dados do CSV
+#Importar dados do CSV
   def csv_import
-    file = File.open(params[:dump][:file].tempfile.path, 'r' )
-    lines = file.readlines
-    lines.each do |l|
-      columns = l.split(';')    
-      c=risk_area.new(:regional => columns[0],
-                      :endereco => columns[1],
-                      :bairro => columns[2],
-                      :localidade => columns[3],
-                      :descricao => columns[4],
-                      :longitude => columns[5])
+    #n = 0
+    CSV.foreach(params[:dump][:file].tempfile,:col_sep => ';', :encoding => 'ISO-8859-1') do |row|
+      c = RiskArea.new(:regional => row[0],
+                      :endereco => row[1],
+                      :bairro => row[2],
+                      :localidade => row[3],
+                      :descricao => row[4])
+                      #:longitude => row[5])
       c.save
     end
+    redirect_to :action => "index" and return
   end
   
   # GET /risk_areas/1
   # GET /risk_areas/1.json
   def show
-  end
-
-  # GET /risk_areas/new
-  def new
-    @risk_area = RiskArea.new
   end
 
   # GET /risk_areas/1/edit

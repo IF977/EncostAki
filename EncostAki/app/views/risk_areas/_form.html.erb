@@ -1,0 +1,42 @@
+<%= form_with(model: risk_area, local: true) do |form| %>
+  <% if risk_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(risk_area.errors.count, "error") %> prohibited this risk_area from being saved:</h2>
+
+      <ul>
+      <% risk_area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :regional %>
+    <%= form.text_field :regional, id: :risk_area_regional %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco, id: :risk_area_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :risk_area_bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :localidade %>
+    <%= form.text_field :localidade, id: :risk_area_localidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao, id: :risk_area_descricao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Risk Areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regional</th>
+      <th>Endereco</th>
+      <th>Bairro</th>
+      <th>Localidade</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @risk_areas.each do |risk_area| %>
+      <tr>
+        <td><%= risk_area.regional %></td>
+        <td><%= risk_area.endereco %></td>
+        <td><%= risk_area.bairro %></td>
+        <td><%= risk_area.localidade %></td>
+        <td><%= risk_area.descricao %></td>
+        <td><%= link_to 'Show', risk_area %></td>
+        <td><%= link_to 'Edit', edit_risk_area_path(risk_area) %></td>
+        <td><%= link_to 'Destroy', risk_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2> Import </h2>
+<%= form_for :dump, :url => importar_path, :html => { :multipart => true} do |f| -%>
+  <table>
+    <tr>
+      <td>
+        <label for = "dump_file">
+          Selecione um arquivo CSV:
+        </label>
+      </td>
+      <td>
+        <%= f.file_field :file -%>
+      </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+        <%= submit_tag 'Import' -%>
+      </td>
+    </tr>
+  </table>
+<% end -%>
+
+
+<br>
+
+<%= link_to 'New Risk Area', new_risk_area_path %>
