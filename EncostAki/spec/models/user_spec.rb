@@ -23,13 +23,11 @@ RSpec.describe User, type: :model do
         it "Descrição completa" do
             user = User.new
             user.Fname = "James"
-            user.senha = "34597654432"
-            user.Fname = "James"
+            user.Mname = "Go"
             user.senha = "34597654432"
             user.username = "james"
 
-
-            expect(user.descricao_completa).to eql("Fname: James, senha: 34597654432, Usuário: james")
+            expect(user.descricao_completa).to eql("First Name: James, Middle Name: Go, Usuário: james, Senha: 34597654432")
         end
     end
 end
