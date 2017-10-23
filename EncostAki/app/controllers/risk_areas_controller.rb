@@ -22,11 +22,12 @@ class RiskAreasController < ApplicationController
                       :endereco => row[1],
                       :bairro => row[2],
                       :localidade => row[3],
-                      :descricao => row[4])
-                      #:longitude => row[5])
+                      :descricao => row[4],
+                      :latitude => row[5],
+                      :longitude => row[6])
       c.save
     end
-    redirect_to :action => "index" and return
+    #redirect_to :action => "index" and return
   end
   
   # GET /risk_areas/1
@@ -86,6 +87,6 @@ class RiskAreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def risk_area_params
-      params.require(:risk_area).permit(:regional, :endereco, :bairro, :localidade, :descricao, :longitude)
+      params.require(:risk_area).permit(:regional, :endereco, :bairro, :localidade, :descricao, :latitude, :longitude)
     end
 end

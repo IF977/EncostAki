@@ -25,5 +25,16 @@
   <%= @risk_area.descricao %>
 </p>
 
+<p>
+  <strong>Latitude:</strong>
+  <%= @risk_area.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @risk_area.longitude %>
+</p>
+
+
 <%= link_to 'Edit', edit_risk_area_path(@risk_area) %> |
 <%= link_to 'Back', risk_areas_path %>

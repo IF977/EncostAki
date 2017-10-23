@@ -35,6 +35,17 @@
     <%= form.label :descricao %>
     <%= form.text_field :descricao, id: :risk_area_descricao %>
   </div>
+  
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :risk_area_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :risk_area_longitude %>
+  </div>
+  
 
   <div class="actions">
     <%= form.submit %>
