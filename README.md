@@ -12,8 +12,6 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ●	Renata Kelly da Silva Amorim (rkdsa) - Desenvolvedora e Gerente de Projeto;
 
-●	Hugo Leonardo Gomes de Oliveira (hlgo) - Desenvolvedor;
-
 ●	Gustavo Bernardo Lopes (gbl3) - Desenvolvedor e Desenvolvedor de Testes.
 
 
