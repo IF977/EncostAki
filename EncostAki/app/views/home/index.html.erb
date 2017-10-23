@@ -4,10 +4,6 @@
 	<meta charset="utf-8">
     <title>Encostaki</title>
     <link rel="icon" href="logopinfinal"/>
-
-    <!-- rails s -b $IP -p $PORT -->
-    
-   
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -18,7 +14,7 @@
 <body>
 <div class="container">
     <section class="header">
-        <%= image_tag "logofinal",id:"logo"%>
+        <%= image_tag "logofinal", id:"logo"%>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <nav class="navbar navbar-inverse">
@@ -50,10 +46,17 @@
                     <li><a href="#">Page 3</a></li>
                     -->
                   </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><%= link_to "Login", login_index_path %></li>
-                    <li><%= link_to "Cadastrar", users_path %>  </li>
-                    <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                   <% if member_signed_in? %>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to current_member.email %></li>
+                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                    </ul>
+                  <% else %>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to "Login", new_member_session_path %></li>
+                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li>
+                  <% end %>
                   </ul>
                 </div>
               </div>
@@ -84,7 +87,7 @@
                 map: map
             });
 
-            var contentString = '<h1>Teste</h1>';
+            var contentString = '<h1 id="pintest">Teste</h1>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -99,14 +102,11 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
         </script>
 
-
-
-
- <footer id="rodape">
+<footer id="rodape">
 Copyright 2017 - by EncostAki<br>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>

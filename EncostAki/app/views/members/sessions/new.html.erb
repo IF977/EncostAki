@@ -20,27 +20,33 @@
 			<div class="col-md-4 text-center col-sm-4 text-center">
         <div id="centro">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            
             <h1>Login</h1>
-            <h2><%= image_tag "logopinfinal",id:"logo"%></h2>
+            <%= image_tag "logopinfinal",id:"logopin"%>
+        
             <div class="field">
-              <p><%= f.label "Email" %><br/></p>
+              <p>Usuário</p>
               <%= f.email_field :email, autofocus: true %>
             </div>
             <div class="field">
-              <p><%= f.label "Senha" %><br/></p>
+              <p>Senha</p>
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
         
             <% if devise_mapping.rememberable? -%>
               <div class="field">
-                <p><%= f.label "Lembrar senha" %></p>
-                <%= f.check_box :remember_me %>
+                <p1>Lembrar senha <%= f.check_box :remember_me %></p1>
               </div>
-            	<p>Não possui conta? <%= link_to "Cadastre-se", new_member_registration_path %></p>
-        <% end -%>
+            	
+        
         <div class="actions">
-          <%= f.submit "Log in"%>
+        <button class="btn btn-warning"><% f.submit %>Login</button>
+        
         </div>
+        
+        <% end -%>
+      
+      <p1>Não possui conta? <%= render "members/shared/links" %></p1><br/>
+      <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
       <% end %>
       
-      <%= render "members/shared/links" %>

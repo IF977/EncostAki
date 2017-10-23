@@ -18,31 +18,34 @@
       </div>
       <div class="col-md-4 text-center">
         <div id="centro">
+          <h1>Cadastro</h1>
+          <%= image_tag "logopinfinal",id:"logopin"%>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
           
             <div class="field">
-              <p><%= f.label "Email" %></p><br />
+              <p>Email</p>
               <%= f.email_field :email, autofocus: true %>
             </div>
           
             <div class="field">
-              <p><%= f.label "Senha" %></p>
+              <p>Senha</p>
               <% if @minimum_password_length %>
-              <em><p>(<%= @minimum_password_length %> caracteres no mínimo)</p></em>
+                <em><p1>(<%= @minimum_password_length %> caracteres no mínimo)</p1></em>
               <% end %><br />
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
           
             <div class="field">
-              <p><%= f.label "Confirmar Senha" %><br/></p>
+              <p>Confirmar Senha</p>
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
           
             <div class="actions">
-              <%= f.submit "Sign up"%>
+              <button class="btn btn-warning"><% f.submit %>Cadastrar</button>
             </div>
-            <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
+            
 <% end %>
 
-<%= render "members/shared/links" %>
+<p>Já possui conta? <%= render "members/shared/links" %></p>
+<p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
