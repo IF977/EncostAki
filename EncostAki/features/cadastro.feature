@@ -11,7 +11,8 @@ Scenario: Acessar tela de cadastro (Happy path)
     Then I should see Sign up page
 
 Scenario: Criar usuario sem email (Sad path)
-    When I fill user password input with 123456
-    And I fill user_password_confirmation input with 123456
-    And I click on the sign_up button
-    Then I should see Email can't be blank
+    Given I am on the Sign Up page
+    When I put 123456 on the member_password input
+    And I put 123456 on the member_password_confirmation input
+    When I click on the Cadastrar button
+    Then I should see the text Email can't be blank
