@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ano</th>
+      <th>Mes</th>
+      <th>Processo numero</th>
+      <th>Solicitacao data</th>
+      <th>Solicitacao hora</th>
+      <th>Solicitacao descricao</th>
+      <th>Solicitacao regional</th>
+      <th>Solicitacao bairro</th>
+      <th>Solicitacao localidade</th>
+      <th>Solicitacao endereco</th>
+      <th>Solicitacao roteiro</th>
+      <th>Rpa codigo</th>
+      <th>Rpa nome</th>
+      <th>Solicitacao microrregiao</th>
+      <th>Solicitacao plantao</th>
+      <th>Solicitacao origem chamado</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Solicitacao vitimas</th>
+      <th>Solicitacao vitimas fatais</th>
+      <th>Solicitacao vitimas fatais</th>
+      <th>Processo tipo</th>
+      <th>Processo origem</th>
+      <th>Processo localizacao</th>
+      <th>Processo status</th>
+      <th>Processo data conclusao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.ano %></td>
+        <td><%= ticket.mes %></td>
+        <td><%= ticket.processo_numero %></td>
+        <td><%= ticket.solicitacao_data %></td>
+        <td><%= ticket.solicitacao_hora %></td>
+        <td><%= ticket.solicitacao_descricao %></td>
+        <td><%= ticket.solicitacao_regional %></td>
+        <td><%= ticket.solicitacao_bairro %></td>
+        <td><%= ticket.solicitacao_localidade %></td>
+        <td><%= ticket.solicitacao_endereco %></td>
+        <td><%= ticket.solicitacao_roteiro %></td>
+        <td><%= ticket.rpa_codigo %></td>
+        <td><%= ticket.rpa_nome %></td>
+        <td><%= ticket.solicitacao_microrregiao %></td>
+        <td><%= ticket.solicitacao_plantao %></td>
+        <td><%= ticket.solicitacao_origem_chamado %></td>
+        <td><%= ticket.latitude %></td>
+        <td><%= ticket.longitude %></td>
+        <td><%= ticket.solicitacao_vitimas %></td>
+        <td><%= ticket.solicitacao_vitimas_fatais %></td>
+        <td><%= ticket.solicitacao_vitimas_fatais %></td>
+        <td><%= ticket.processo_tipo %></td>
+        <td><%= ticket.processo_origem %></td>
+        <td><%= ticket.processo_localizacao %></td>
+        <td><%= ticket.processo_status %></td>
+        <td><%= ticket.processo_data_conclusao %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>

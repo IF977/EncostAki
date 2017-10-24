@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023214217) do
+ActiveRecord::Schema.define(version: 20171024003503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,36 @@ ActiveRecord::Schema.define(version: 20171023214217) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "ano"
+    t.integer "mes"
+    t.integer "processo_numero"
+    t.date "solicitacao_data"
+    t.datetime "solicitacao_hora"
+    t.string "solicitacao_descricao"
+    t.string "solicitacao_regional"
+    t.string "solicitacao_bairro"
+    t.string "solicitacao_localidade"
+    t.string "solicitacao_endereco"
+    t.string "solicitacao_roteiro"
+    t.integer "rpa_codigo"
+    t.string "rpa_nome"
+    t.string "solicitacao_microrregiao"
+    t.string "solicitacao_plantao"
+    t.string "solicitacao_origem_chamado"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "solicitacao_vitimas"
+    t.string "solicitacao_vitimas_fatais"
+    t.string "processo_tipo"
+    t.string "processo_origem"
+    t.string "processo_localizacao"
+    t.string "processo_status"
+    t.string "processo_data_conclusao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

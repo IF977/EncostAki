@@ -1,0 +1,147 @@
+<%= form_with(model: ticket, local: true) do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ano %>
+    <%= form.number_field :ano, id: :ticket_ano %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mes %>
+    <%= form.number_field :mes, id: :ticket_mes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_numero %>
+    <%= form.number_field :processo_numero, id: :ticket_processo_numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_data %>
+    <%= form.date_select :solicitacao_data, id: :ticket_solicitacao_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_hora %>
+    <%= form.datetime_select :solicitacao_hora, id: :ticket_solicitacao_hora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_descricao %>
+    <%= form.text_field :solicitacao_descricao, id: :ticket_solicitacao_descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_regional %>
+    <%= form.text_field :solicitacao_regional, id: :ticket_solicitacao_regional %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_bairro %>
+    <%= form.text_field :solicitacao_bairro, id: :ticket_solicitacao_bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_localidade %>
+    <%= form.text_field :solicitacao_localidade, id: :ticket_solicitacao_localidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_endereco %>
+    <%= form.text_field :solicitacao_endereco, id: :ticket_solicitacao_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_roteiro %>
+    <%= form.text_field :solicitacao_roteiro, id: :ticket_solicitacao_roteiro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rpa_codigo %>
+    <%= form.number_field :rpa_codigo, id: :ticket_rpa_codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rpa_nome %>
+    <%= form.text_field :rpa_nome, id: :ticket_rpa_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_microrregiao %>
+    <%= form.text_field :solicitacao_microrregiao, id: :ticket_solicitacao_microrregiao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_plantao %>
+    <%= form.text_field :solicitacao_plantao, id: :ticket_solicitacao_plantao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_origem_chamado %>
+    <%= form.text_field :solicitacao_origem_chamado, id: :ticket_solicitacao_origem_chamado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :ticket_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :ticket_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_vitimas %>
+    <%= form.text_field :solicitacao_vitimas, id: :ticket_solicitacao_vitimas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_vitimas_fatais %>
+    <%= form.text_field :solicitacao_vitimas_fatais, id: :ticket_solicitacao_vitimas_fatais %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_vitimas_fatais %>
+    <%= form.text_field :solicitacao_vitimas_fatais, id: :ticket_solicitacao_vitimas_fatais %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_tipo %>
+    <%= form.text_field :processo_tipo, id: :ticket_processo_tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_origem %>
+    <%= form.text_field :processo_origem, id: :ticket_processo_origem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_localizacao %>
+    <%= form.text_field :processo_localizacao, id: :ticket_processo_localizacao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_status %>
+    <%= form.text_field :processo_status, id: :ticket_processo_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_data_conclusao %>
+    <%= form.text_field :processo_data_conclusao, id: :ticket_processo_data_conclusao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
