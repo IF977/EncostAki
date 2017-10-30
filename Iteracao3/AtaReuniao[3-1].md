@@ -1,16 +1,14 @@
 # Projeto: EncostAki
 
 # Ata de Reunião
-#
-#
 | Data| Local |
 | ------ | ------ |
 |23/10/2017|CIn - Andar M|
 
 ### Participantes
-> Eric Araujo da Costa Júnior (eacj)
-> Gustavo Bernardo Lopes (glb3)
-> Pedro Vinicius de Lima Santos (pvls)
+> Eric Araujo da Costa Júnior (eacj)            
+> Gustavo Bernardo Lopes (glb3)         
+> Pedro Vinicius de Lima Santos (pvls)          
 > Renata Kelly da Silva Amorim (rkdsa)
 
 ### Objetivos
