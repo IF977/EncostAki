@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <title>Encostaki</title>
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-    <link rel="icon" href="imgs\logopinfinal.png" type="image/x-icon" />
+    
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	  <%= stylesheet_link_tag "css/bootstrap" %>
     <link href="css/login.css" type="text/css"  rel="stylesheet">
@@ -20,10 +20,8 @@
 			<div class="col-md-4 text-center col-sm-4 text-center">
         <div id="centro">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            
             <h1>Login</h1>
-            <%= image_tag "logopinfinal",id:"logopin"%>
-        
+            <%= image_tag('logopinfinal.png', id:'logopin') %>
             <div class="field">
               <p>Usuário</p>
               <%= f.email_field :email, autofocus: true %>

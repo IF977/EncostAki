@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
     <title>Encostaki</title>
-    <link rel="icon" href="imgs\logopinfinal.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <%= stylesheet_link_tag "css/bootstrap" %>
     <link href="css/cadastro.css" type="text/css"  rel="stylesheet">
@@ -19,7 +18,7 @@
       <div class="col-md-4 text-center">
         <div id="centro">
           <h1>Cadastro</h1>
-          <%= image_tag "logopinfinal",id:"logopin"%>
+          <%= image_tag("logopinfinal.png",id:"logopin")%>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
           

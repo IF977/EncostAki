@@ -17,7 +17,7 @@ class RiskAreasController < ApplicationController
 #Importar dados do CSV
   def csv_import
     #n = 0
-    CSV.foreach(params[:dump][:file].tempfile,:col_sep => ';', :encoding => 'ISO-8859-1') do |row|
+    CSV.foreach(params[:dump][:file].tempfile,:col_sep => ';', :encoding => 'ISO-8859-1:UTF-8') do |row|
       c = RiskArea.new(:regional => row[0],
                       :endereco => row[1],
                       :bairro => row[2],

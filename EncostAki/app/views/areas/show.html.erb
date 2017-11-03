@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Regional:</strong>
+  <%= @area.regional %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @area.endereco %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @area.bairro %>
+</p>
+
+<p>
+  <strong>Localidade:</strong>
+  <%= @area.localidade %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @area.descricao %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @area.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @area.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

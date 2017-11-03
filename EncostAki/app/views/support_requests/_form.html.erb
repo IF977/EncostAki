@@ -1,0 +1,142 @@
+<%= form_with(model: support_request, local: true) do |form| %>
+  <% if support_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(support_request.errors.count, "error") %> prohibited this support_request from being saved:</h2>
+
+      <ul>
+      <% support_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ano %>
+    <%= form.number_field :ano, id: :support_request_ano %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mes %>
+    <%= form.text_field :mes, id: :support_request_mes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_numero %>
+    <%= form.text_field :processo_numero, id: :support_request_processo_numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_data %>
+    <%= form.date_select :solicitacao_data, id: :support_request_solicitacao_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_hora %>
+    <%= form.time_select :solicitacao_hora, id: :support_request_solicitacao_hora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_descricao %>
+    <%= form.text_field :solicitacao_descricao, id: :support_request_solicitacao_descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_regional %>
+    <%= form.text_field :solicitacao_regional, id: :support_request_solicitacao_regional %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_bairro %>
+    <%= form.text_field :solicitacao_bairro, id: :support_request_solicitacao_bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_localidade %>
+    <%= form.text_field :solicitacao_localidade, id: :support_request_solicitacao_localidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_endereco %>
+    <%= form.text_field :solicitacao_endereco, id: :support_request_solicitacao_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_roteiro %>
+    <%= form.text_field :solicitacao_roteiro, id: :support_request_solicitacao_roteiro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rpa_codigo %>
+    <%= form.number_field :rpa_codigo, id: :support_request_rpa_codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rpa_nome %>
+    <%= form.text_field :rpa_nome, id: :support_request_rpa_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_microrregiao %>
+    <%= form.text_field :solicitacao_microrregiao, id: :support_request_solicitacao_microrregiao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_plantao %>
+    <%= form.text_field :solicitacao_plantao, id: :support_request_solicitacao_plantao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_origem_chamado %>
+    <%= form.text_field :solicitacao_origem_chamado, id: :support_request_solicitacao_origem_chamado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :support_request_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :support_request_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_vitimas %>
+    <%= form.text_field :solicitacao_vitimas, id: :support_request_solicitacao_vitimas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solicitacao_vitimas_fatais %>
+    <%= form.text_field :solicitacao_vitimas_fatais, id: :support_request_solicitacao_vitimas_fatais %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_tipo %>
+    <%= form.text_field :processo_tipo, id: :support_request_processo_tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_origem %>
+    <%= form.text_field :processo_origem, id: :support_request_processo_origem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_localizacao %>
+    <%= form.text_field :processo_localizacao, id: :support_request_processo_localizacao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_status %>
+    <%= form.text_field :processo_status, id: :support_request_processo_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processo_data_conclusao %>
+    <%= form.datetime_select :processo_data_conclusao, id: :support_request_processo_data_conclusao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

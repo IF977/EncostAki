@@ -1,0 +1,2 @@
+class SupportRequest < ApplicationRecord
+end

@@ -1,0 +1,52 @@
+<%= form_with(model: area, local: true) do |form| %>
+  <% if area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+
+      <ul>
+      <% area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :regional %>
+    <%= form.text_field :regional, id: :area_regional %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco, id: :area_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :area_bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :localidade %>
+    <%= form.text_field :localidade, id: :area_localidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao, id: :area_descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :area_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :area_longitude %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

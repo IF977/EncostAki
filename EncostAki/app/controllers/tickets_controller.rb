@@ -6,6 +6,40 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
   end
+  
+  #Importar dados do CSV
+  def csv_import
+    #n = 0
+    CSV.foreach(params[:dump][:file].tempfile,:col_sep => ';', :encoding => 'ISO-8859-1') do |row|
+      c = Ticket.new( :ano                        => row[0],
+                      :mes                        => row[1],
+                      :processo_numero            => row[2],
+                      :solicitacao_data           => row[3],
+                      :solicitacao_hora           => row[4],
+                      :solicitacao_descricao      => row[5],
+                      :solicitacao_regional       => row[6],
+                      :solicitacao_bairro         => row[7],
+                      :solicitacao_localidade     => row[8],
+                      :solicitacao_endereco       => row[9],
+                      :solicitacao_roteiro        => row[10],
+                      :rpa_codigo                 => row[11],
+                      :rpa_nome                   => row[12],
+                      :solicitacao_microrregiao   => row[13],
+                      :solicitacao_plantao        => row[14],
+                      :solicitacao_origem_chamado => row[15],
+                      :latitude                   => row[16],
+                      :longitude                  => row[17],
+                      :solicitacao_vitimas        => row[18],
+                      :solicitacao_vitimas_fatais => row[19],
+                      :processo_tipo              => row[20],
+                      :processo_origem            => row[21],
+                      :processo_localizacao       => row[22],
+                      :processo_status            => row[23],
+                      :processo_data_conclusao    => row[24])
+      c.save
+    end
+    redirect_to :action => "index" and return
+  end
 
   # GET /tickets/1
   # GET /tickets/1.json

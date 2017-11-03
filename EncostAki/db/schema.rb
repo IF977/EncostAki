@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024003503) do
+ActiveRecord::Schema.define(version: 20171103151600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string "regional"
+    t.string "endereco"
+    t.string "bairro"
+    t.string "localidade"
+    t.string "descricao"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,24 +44,12 @@ ActiveRecord::Schema.define(version: 20171024003503) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-  create_table "risk_areas", force: :cascade do |t|
-    t.string "regional"
-    t.string "endereco"
-    t.string "bairro"
-    t.string "localidade"
-    t.string "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-  end
-
-  create_table "tickets", force: :cascade do |t|
+  create_table "support_requests", force: :cascade do |t|
     t.integer "ano"
-    t.integer "mes"
-    t.integer "processo_numero"
+    t.string "mes"
+    t.string "processo_numero"
     t.date "solicitacao_data"
-    t.datetime "solicitacao_hora"
+    t.time "solicitacao_hora"
     t.string "solicitacao_descricao"
     t.string "solicitacao_regional"
     t.string "solicitacao_bairro"
@@ -69,16 +69,7 @@ ActiveRecord::Schema.define(version: 20171024003503) do
     t.string "processo_origem"
     t.string "processo_localizacao"
     t.string "processo_status"
-    t.string "processo_data_conclusao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "Fname"
-    t.string "Mname"
-    t.string "username"
-    t.integer "senha"
+    t.datetime "processo_data_conclusao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
