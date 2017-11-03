@@ -1,6 +1,7 @@
 <img src="http://i1096.photobucket.com/albums/g327/xDarkslayer/logo%20Final_zpsaseowunu.png?t=1507553603"/>
 
 
+Link da aplicação no Heroku: https://encostakiapp.herokuapp.com/
 
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática (CIn) da Universidade Federal de Pernambuco (UFPE).
 
