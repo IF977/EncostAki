@@ -89,4 +89,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  ENV['FACEBOOK_APP_ID'] = "510749972610314";
+  ENV['FACEBOOK_APP_SECRET'] = "9cdf6fa3e0a9c7c745e2dc7c5e90717b";
+
 end

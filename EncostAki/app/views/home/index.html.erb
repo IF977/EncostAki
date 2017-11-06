@@ -51,6 +51,7 @@
                    <% if member_signed_in? %>
                     <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to current_member.email %></li>
+                      <li><%= image_tag(current_member.smallimage)%></li>
                       <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
                       <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
                     </ul>
@@ -72,8 +73,8 @@
 
 
         <div id="esquerda">
-        <div id="map"></div>
-        <script>
+        <div id="map">
+        <script type= "text/javascript">
             function initMap() {
                 var cin = {lat: -8.055590, lng: -34.951344};
                 var map = new google.maps.Map(document.getElementById('map'), {

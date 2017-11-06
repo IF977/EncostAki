@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :areas
   resources :tickets
   resources :risk_areas
-  devise_for :members
+  devise_for :members, :controllers => { :omniauth_callbacks => "callbacks" }
   get 'home/index'
   get 'inicio' => 'welcome#index'
   root :to => 'home#index'
