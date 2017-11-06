@@ -6,4 +6,5 @@ class Member
         @senha = "123456"
         @conf_senha = "123456"
     end
+    
 end
