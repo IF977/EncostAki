@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
     <title>Encostaki</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
@@ -30,11 +30,11 @@
                   <ul class="nav navbar-nav">
                     <li class=""><%= link_to "Home", home_index_path %></li>
                     <li><a href="#">Chamados</a></li>
- 		            <li><a href="#">Informações</a></li>
- 		            <li><a href="#">Estatísticas</a></li>
- 		            <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
- 		            <li><%= link_to "Áreas de Risco", areas_path %></li>
- 		            
+                <li><a href="#">Informações</a></li>
+                <li><a href="#">Estatísticas</a></li>
+                <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
+                <li><%= link_to "Áreas de Risco", areas_path %></li>
+                
                     <!--
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
@@ -49,12 +49,12 @@
                     -->
                   </ul>
                    <% if member_signed_in? %>
-                      <ul class="nav navbar-nav navbar-right">
-                        <li><%= link_to current_member.email %></li>
-                        <li><%= image_tag(current_member.smallimage)%></li>
-                        <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
-                        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-                      </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to current_member.email %></li>
+                      <li><%= image_tag(current_member.smallimage)%></li>
+                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                    </ul>
                   <% else %>
                     <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to "Login", new_member_session_path %></li>
@@ -63,7 +63,7 @@
                   </ul>
                 </div>
               </div>
-            </nav>    	    
+            </nav>          
             </div>
                        
         </div>
@@ -94,25 +94,27 @@
                 zoom: 12,
                 center: cin
               });
-              
-            }
-            //Função de carregar pontos do Json e jogar no mapa
-             function carregarPontos() {
-                $.getJSON('javascripts/pontos.json', function(teste) {
-                   for (var i = 0; i < items.length; i++){
-                   var latLng = new google.maps.LatLng(item[i][0], items[i][1]);
+               $.getJSON('pontos.json', function(pontos) {
+                 for (var i = 0; i < pontos.points.length; i++){
+                   debugger;
+                   console.log(pontos.points[ String(i) ].latitude);
+                   var la = pontos.points[String(i)].latitude;
+                   var lg = pontos.points[String(i)].longitude;
+                   var latLng = {lat: la,lng: lg};
+                 //console.log(latLng);
                    var marker = new google.maps.Marker({
                    position: latLng,
                    map: map
                      });
-                  }
-  
-                });
+                  
+                    console.log(marker); 
+                   }
+
+              });
             }
-          
             
+            //Função de carregar pontos do Json e jogar no mapa
             
-            carregarPontos();
             //Infoboxes 
             
             
@@ -130,4 +132,4 @@
 </html>
 
             
-           
+
