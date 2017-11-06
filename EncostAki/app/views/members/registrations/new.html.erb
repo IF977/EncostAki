@@ -45,6 +45,6 @@
             </div>
             
 <% end %>
-
-<p>Já possui conta? <%= render "members/shared/links" %></p>
+<%= link_to image_tag("loginfb.PNG"), "/members/auth/facebook"%>
+<p>Já possui conta? <%= link_to "Login",  new_member_session_path %></p>
 <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
