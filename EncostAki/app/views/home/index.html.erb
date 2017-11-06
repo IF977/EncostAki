@@ -49,12 +49,12 @@
                     -->
                   </ul>
                    <% if member_signed_in? %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to current_member.email %></li>
-                      <li><%= image_tag(current_member.smallimage)%></li>
-                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
-                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-                    </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to current_member.email %></li>
+                        <li><%= image_tag(current_member.smallimage)%></li>
+                        <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                      </ul>
                   <% else %>
                     <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to "Login", new_member_session_path %></li>
@@ -71,42 +71,63 @@
     
 </div>
 
-
         <div id="esquerda">
-        <div id="map">
-        <script type= "text/javascript">
-            function initMap() {
-                var cin = {lat: -8.055590, lng: -34.951344};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: cin
-            });
-            var marker = new google.maps.Marker({
-                position: cin,
-                map: map
-            });
-
-            var contentString = '<h1 id="pintest">Teste</h1>';
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-                marker.addListener('click', function() {
-                     infowindow.open(map, marker);
-             });
-            
-        }
-        </script>
+        <div id="map"></div>
+        
         </div>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
-        </script>
+        
 
-<footer id="rodape">
-Copyright 2017 - by EncostAki<br>
-</footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+
+<script type= "text/javascript">
+            //Opções de iniciação do mapa
+            debugger;
+            function initMap() {
+                debugger;
+                var cin = {lat: -8.055590, lng: -34.951344}
+                var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: cin
+              });
+              
+            }
+            //Função de carregar pontos do Json e jogar no mapa
+             function carregarPontos() {
+                $.getJSON('javascripts/pontos.json', function(teste) {
+                   for (var i = 0; i < items.length; i++){
+                   var latLng = new google.maps.LatLng(item[i][0], items[i][1]);
+                   var marker = new google.maps.Marker({
+                   position: latLng,
+                   map: map
+                     });
+                  }
+  
+                });
+            }
+          
+            
+            
+            carregarPontos();
+            //Infoboxes 
+            
+            
+            //debugger;
+           
+ 
+        
+        </script>
+        
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
+        </script>
+
 </body>
 </html>
+
+            
+           
