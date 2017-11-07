@@ -86,9 +86,9 @@
 
 <script type= "text/javascript">
             //Opções de iniciação do mapa
-            debugger;
+            
             function initMap() {
-                debugger;
+                
                 var cin = {lat: -8.055590, lng: -34.951344}
                 var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
@@ -96,29 +96,19 @@
               });
                $.getJSON('pontos.json', function(pontos) {
                  for (var i = 0; i < pontos.points.length; i++){
-                   debugger;
-                   console.log(pontos.points[ String(i) ].latitude);
                    var la = pontos.points[String(i)].latitude;
                    var lg = pontos.points[String(i)].longitude;
                    var latLng = {lat: la,lng: lg};
-                 //console.log(latLng);
                    var marker = new google.maps.Marker({
                    position: latLng,
                    map: map
                      });
                   
-                    console.log(marker); 
+                    
                    }
 
               });
             }
-            
-            //Função de carregar pontos do Json e jogar no mapa
-            
-            //Infoboxes 
-            
-            
-            //debugger;
            
  
         
