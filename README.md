@@ -1,4 +1,4 @@
-<img src="http://i1096.photobucket.com/albums/g327/xDarkslayer/logo%20Final_zpsaseowunu.png?t=1507553603"/>
+<img src="https://image.ibb.co/bLW1fw/logo_Final.png"/>
 
 
 Link da aplicação no Heroku: https://limitless-savannah-53252.herokuapp.com/
