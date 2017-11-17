@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
     <title>Encostaki</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
@@ -28,13 +28,13 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
-                    <li class=""><%= link_to "Home", home_index_path %></li>
+                    <li class=""><%= link_to "Home", "/" %></li>
                     <li><a href="#">Chamados</a></li>
-                <li><a href="#">Informações</a></li>
-                <li><a href="#">Estatísticas</a></li>
-                <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
-                <li><%= link_to "Áreas de Risco", areas_path %></li>
-                
+ 		            <li><a href="#">Informações</a></li>
+ 		            <li><a href="#">Estatísticas</a></li>
+ 		            <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
+ 		            <li><%= link_to "Áreas de Risco", areas_path %></li>
+ 		            
                     <!--
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
@@ -50,11 +50,61 @@
                   </ul>
                    <% if member_signed_in? %>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to current_member.email %></li>
+                      <li><%= link_to current_member.email, "/" %></li>
                       <li><%= image_tag(current_member.smallimage)%></li>
                       <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
                       <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
                     </ul>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jqu,ery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<script type= "text/javascript">
+            //Opções de iniciação do mapa
+            debugger;
+            function initMap() {
+                debugger;
+                var cin = {lat: -8.055590, lng: -34.951344}
+                var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: cin
+              });
+               $.getJSON('pontos.json', function(pontos) {
+                 for (var i = 0; i < pontos.points.length; i++){
+                   debugger;
+                   console.log(pontos.points[ String(i) ].latitude);
+                   var la = pontos.points[String(i)].latitude;
+                   var lg = pontos.points[String(i)].longitude;
+                   var latLng = {lat: la,lng: lg};
+                 //console.log(latLng);
+                   var marker = new google.maps.Marker({
+                   position: latLng,
+                   map: map,
+                   icon: 'logopin.png'
+                     });
+                  
+                    console.log(marker); 
+                   }
+
+              });
+            }
+            
+            //Função de carregar pontos do Json e jogar no mapa
+            
+            //Infoboxes 
+            
+            
+            //debugger;
+           
+ 
+        
+        </script>
+        
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
+        </script>
                   <% else %>
                     <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to "Login", new_member_session_path %></li>
@@ -63,7 +113,7 @@
                   </ul>
                 </div>
               </div>
-            </nav>          
+            </nav>    	    
             </div>
                        
         </div>
@@ -77,49 +127,7 @@
         </div>
         
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-
-<script type= "text/javascript">
-            //Opções de iniciação do mapa
-            
-            function initMap() {
-                
-                var cin = {lat: -8.055590, lng: -34.951344}
-                var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: cin
-              });
-               $.getJSON('pontos.json', function(pontos) {
-                 for (var i = 0; i < pontos.points.length; i++){
-                   var la = pontos.points[String(i)].latitude;
-                   var lg = pontos.points[String(i)].longitude;
-                   var latLng = {lat: la,lng: lg};
-                   var marker = new google.maps.Marker({
-                   position: latLng,
-                   map: map
-                     });
-                  
-                    
-                   }
-
-              });
-            }
-           
- 
-        
-        </script>
-        
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
-        </script>
-
 </body>
 </html>
 
             
-
