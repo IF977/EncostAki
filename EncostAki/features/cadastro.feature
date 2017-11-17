@@ -29,4 +29,4 @@ Scenario: Criar usuario sem email (Sad path)
     When I put 123456 on the member_password input
     And I put 123456 on the member_password_confirmation input
     When I click on the Cadastrar button
-    Then I should see the text Email can't be blank
+    Then I should see the text Email can't be blank 

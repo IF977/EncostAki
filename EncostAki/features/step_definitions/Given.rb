@@ -3,7 +3,7 @@ Given(/^I am on the home page$/) do
 end
 
 Given(/^I am on the Sign Up page$/) do
-    visit(new_member_registration_path)
+    visit(new_member_registration_path) 
 end
 
 Given(/^I am on the Sign In page$/) do

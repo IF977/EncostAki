@@ -16,4 +16,4 @@ Scenario: Acessar Áreas estando logado (Happy path)
   When I put 123456 on the member_password input
   And I put 123456 on the member_password_confirmation input
   When I click on the Cadastrar button
- Then I should see the text Areas
+ Then I should see the text Areas 
