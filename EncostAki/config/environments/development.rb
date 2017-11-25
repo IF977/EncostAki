@@ -54,4 +54,10 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  #lEMBRAR DE QUANDO FOR DAR DEPLOY MUDAR ESSES CODIGOS.
+  ENV['FACEBOOK_APP_ID'] = "2427701934121933";
+  #Esse é o codigo do heroku ENV['FACEBOOK_APP_ID'] = "510749972610314";
+  ENV['FACEBOOK_APP_SECRET'] = "a043b078cafc4a7eacfdd6181e0fad28";
+  #Esse é o codigo do heroku ENV['FACEBOOK_APP_SECRET'] = "9cdf6fa3e0a9c7c745e2dc7c5e90717b";
+  #senha do gmail: Encostakiapp2017 e a do facebook: Encostakiapp2017! logins: encostakiapp@gmail.com
 end

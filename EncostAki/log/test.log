@@ -5170,3 +5170,1841 @@ Processing by Devise::SessionsController#new as HTML
   Rendered members/sessions/new.html.erb within layouts/application (4.4ms)
 Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (117.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Encostaki_test"[0m
+  [1m[35m (1034.1ms)[0m  [1m[35mCREATE DATABASE "Encostaki_test" ENCODING = 'unicode' TEMPLATE = "template0"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "areas" CASCADE[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "areas" ("id" bigserial primary key, "regional" character varying, "endereco" character varying, "bairro" character varying, "localidade" character varying, "descricao" character varying, "latitude" float, "longitude" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "members" CASCADE[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "provider" character varying, "uid" character varying, "name" character varying)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_members_on_email" ON "members"  ("email")[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_members_on_reset_password_token" ON "members"  ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "support_requests" CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "support_requests" ("id" bigserial primary key, "ano" integer, "mes" character varying, "processo_numero" character varying, "solicitacao_data" date, "solicitacao_hora" time, "solicitacao_descricao" character varying, "solicitacao_regional" character varying, "solicitacao_bairro" character varying, "solicitacao_localidade" character varying, "solicitacao_endereco" character varying, "solicitacao_roteiro" character varying, "rpa_codigo" integer, "rpa_nome" character varying, "solicitacao_microrregiao" character varying, "solicitacao_plantao" character varying, "solicitacao_origem_chamado" character varying, "latitude" float, "longitude" float, "solicitacao_vitimas" character varying, "solicitacao_vitimas_fatais" character varying, "processo_tipo" character varying, "processo_origem" character varying, "processo_localizacao" character varying, "processo_status" character varying, "processo_data_conclusao" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171105134940)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171103151600),
+(20171015205756),
+(20171103151505);
+
+[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-11-06 16:41:46.241287"], ["updated_at", "2017-11-06 16:41:46.241287"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 16:41:47 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/risk_areas" for 127.0.0.1 at 2017-11-06 16:41:47 +0000
+Processing by RiskAreasController#index as HTML
+  Rendering risk_areas/index.html.erb within layouts/application
+  [1m[36mRiskArea Load (0.5ms)[0m  [1m[34mSELECT "risk_areas".* FROM "risk_areas"[0m
+  Rendered risk_areas/index.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 16:41:47 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 16:41:47.248926"], ["updated_at", "2017-11-06 16:41:47.248926"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (14.2ms)
+  Rendered areas/edit.html.erb (32.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:41:47.298637"], ["updated_at", "2017-11-06 16:41:47.298637"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:41:47.300601"], ["updated_at", "2017-11-06 16:41:47.300601"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (3.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.5ms)
+  Rendered areas/new.html.erb (3.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:41:47.336331"], ["updated_at", "2017-11-06 16:41:47.336331"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 16:41:47.389575"], ["updated_at", "2017-11-06 16:41:47.389575"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (18.6ms)
+  Rendered support_requests/edit.html.erb (34.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:41:47.451023"], ["updated_at", "2017-11-06 16:41:47.451023"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:41:47.454444"], ["updated_at", "2017-11-06 16:41:47.454444"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.2ms)
+  Rendered support_requests/new.html.erb (11.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:41:47.522847"], ["updated_at", "2017-11-06 16:41:47.522847"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 16:42:55 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 16:42:55 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 16:42:55.474822"], ["updated_at", "2017-11-06 16:42:55.474822"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (31.9ms)
+  Rendered areas/edit.html.erb (49.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:42:55.543217"], ["updated_at", "2017-11-06 16:42:55.543217"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:42:55.545175"], ["updated_at", "2017-11-06 16:42:55.545175"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.3ms)
+  Rendered areas/new.html.erb (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:42:55.577740"], ["updated_at", "2017-11-06 16:42:55.577740"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 16:42:55.636533"], ["updated_at", "2017-11-06 16:42:55.636533"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (15.8ms)
+  Rendered support_requests/edit.html.erb (30.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:42:55.690717"], ["updated_at", "2017-11-06 16:42:55.690717"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:42:55.693206"], ["updated_at", "2017-11-06 16:42:55.693206"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.4ms)
+  Rendered support_requests/new.html.erb (11.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:42:55.755391"], ["updated_at", "2017-11-06 16:42:55.755391"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 16:46:31 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 16:46:31 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 16:46:31.492226"], ["updated_at", "2017-11-06 16:46:31.492226"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (21.8ms)
+  Rendered areas/edit.html.erb (39.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:46:31.559721"], ["updated_at", "2017-11-06 16:46:31.559721"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:46:31.561826"], ["updated_at", "2017-11-06 16:46:31.561826"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (4.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (4.5ms)
+  Rendered areas/new.html.erb (6.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 16:46:31.610830"], ["updated_at", "2017-11-06 16:46:31.610830"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (3.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 16:46:31.666377"], ["updated_at", "2017-11-06 16:46:31.666377"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.1ms)
+  Rendered support_requests/edit.html.erb (30.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:46:31.722476"], ["updated_at", "2017-11-06 16:46:31.722476"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:46:31.725018"], ["updated_at", "2017-11-06 16:46:31.725018"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.3ms)
+  Rendered support_requests/new.html.erb (11.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 16:46:31.790635"], ["updated_at", "2017-11-06 16:46:31.790635"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 18:08:59 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 18:08:59 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:08:59.251514"], ["updated_at", "2017-11-06 18:08:59.251514"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (10.4ms)
+  Rendered areas/edit.html.erb (30.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:08:59.300650"], ["updated_at", "2017-11-06 18:08:59.300650"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:08:59.302593"], ["updated_at", "2017-11-06 18:08:59.302593"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.5ms)
+  Rendered areas/new.html.erb (3.4ms)
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:08:59.342668"], ["updated_at", "2017-11-06 18:08:59.342668"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:08:59.381216"], ["updated_at", "2017-11-06 18:08:59.381216"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.4ms)
+  Rendered support_requests/edit.html.erb (32.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:08:59.440657"], ["updated_at", "2017-11-06 18:08:59.440657"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:08:59.443328"], ["updated_at", "2017-11-06 18:08:59.443328"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.8ms)
+  Rendered support_requests/new.html.erb (11.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:08:59.513830"], ["updated_at", "2017-11-06 18:08:59.513830"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 18:13:23 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 18:13:23 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:13:23.622065"], ["updated_at", "2017-11-06 18:13:23.622065"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (9.6ms)
+  Rendered areas/edit.html.erb (26.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:13:23.665840"], ["updated_at", "2017-11-06 18:13:23.665840"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:13:23.668055"], ["updated_at", "2017-11-06 18:13:23.668055"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.4ms)
+  Rendered areas/new.html.erb (3.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:13:23.701205"], ["updated_at", "2017-11-06 18:13:23.701205"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:13:23.736627"], ["updated_at", "2017-11-06 18:13:23.736627"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.2ms)
+  Rendered support_requests/edit.html.erb (31.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:13:23.792817"], ["updated_at", "2017-11-06 18:13:23.792817"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:13:23.795640"], ["updated_at", "2017-11-06 18:13:23.795640"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (9.9ms)
+  Rendered support_requests/new.html.erb (10.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:13:23.856221"], ["updated_at", "2017-11-06 18:13:23.856221"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 18:15:11 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 18:15:11 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:15:11.973445"], ["updated_at", "2017-11-06 18:15:11.973445"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (12.2ms)
+  Rendered areas/edit.html.erb (30.5ms)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (3.4ms)
+  Rendered areas/new.html.erb (4.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:15:12.045682"], ["updated_at", "2017-11-06 18:15:12.045682"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:15:12.087241"], ["updated_at", "2017-11-06 18:15:12.087241"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (18.3ms)
+  Rendered support_requests/edit.html.erb (36.4ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:15:12.154402"], ["updated_at", "2017-11-06 18:15:12.154402"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:15:12.157920"], ["updated_at", "2017-11-06 18:15:12.157920"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (5.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (18.2ms)
+  Rendered support_requests/new.html.erb (19.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:15:12.242430"], ["updated_at", "2017-11-06 18:15:12.242430"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 18:16:51 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 18:16:51 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:16:51.334196"], ["updated_at", "2017-11-06 18:16:51.334196"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (9.8ms)
+  Rendered areas/edit.html.erb (26.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:16:51.378774"], ["updated_at", "2017-11-06 18:16:51.378774"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:16:51.380888"], ["updated_at", "2017-11-06 18:16:51.380888"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.4ms)
+  Rendered areas/new.html.erb (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:16:51.413981"], ["updated_at", "2017-11-06 18:16:51.413981"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:16:51.454212"], ["updated_at", "2017-11-06 18:16:51.454212"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.2ms)
+  Rendered support_requests/edit.html.erb (31.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:16:51.511401"], ["updated_at", "2017-11-06 18:16:51.511401"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:16:51.514043"], ["updated_at", "2017-11-06 18:16:51.514043"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.4ms)
+  Rendered support_requests/new.html.erb (11.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:16:51.577933"], ["updated_at", "2017-11-06 18:16:51.577933"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by AreasController#new as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "areas"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by SupportRequestsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "support_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/areas" for 127.0.0.1 at 2017-11-06 18:24:08 +0000
+Processing by AreasController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/support_requests" for 127.0.0.1 at 2017-11-06 18:24:08 +0000
+Processing by SupportRequestsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:24:08.994613"], ["updated_at", "2017-11-06 18:24:08.994613"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (28.9ms)
+  Rendered areas/edit.html.erb (48.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:24:09.066797"], ["updated_at", "2017-11-06 18:24:09.066797"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:24:09.068959"], ["updated_at", "2017-11-06 18:24:09.068959"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.8ms)
+  Rendered areas/new.html.erb (3.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:24:09.105050"], ["updated_at", "2017-11-06 18:24:09.105050"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:24:09.141887"], ["updated_at", "2017-11-06 18:24:09.141887"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.6ms)
+  Rendered support_requests/edit.html.erb (33.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:24:09.199848"], ["updated_at", "2017-11-06 18:24:09.199848"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:24:09.202489"], ["updated_at", "2017-11-06 18:24:09.202489"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (11.0ms)
+  Rendered support_requests/new.html.erb (12.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:24:09.269141"], ["updated_at", "2017-11-06 18:24:09.269141"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:30:35.967343"], ["updated_at", "2017-11-06 18:30:35.967343"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (14.5ms)
+  Rendered areas/edit.html.erb (31.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:30:36.017506"], ["updated_at", "2017-11-06 18:30:36.017506"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:30:36.020137"], ["updated_at", "2017-11-06 18:30:36.020137"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.5ms)
+  Rendered areas/new.html.erb (3.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:30:36.058407"], ["updated_at", "2017-11-06 18:30:36.058407"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:30:36.098214"], ["updated_at", "2017-11-06 18:30:36.098214"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (25.1ms)
+  Rendered support_requests/edit.html.erb (40.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:30:36.167522"], ["updated_at", "2017-11-06 18:30:36.167522"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:30:36.169964"], ["updated_at", "2017-11-06 18:30:36.169964"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.7ms)
+  Rendered support_requests/new.html.erb (11.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:30:36.232031"], ["updated_at", "2017-11-06 18:30:36.232031"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:35:27.039788"], ["updated_at", "2017-11-06 18:35:27.039788"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (13.6ms)
+  Rendered areas/edit.html.erb (30.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:35:27.086726"], ["updated_at", "2017-11-06 18:35:27.086726"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:35:27.088684"], ["updated_at", "2017-11-06 18:35:27.088684"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.4ms)
+  Rendered areas/new.html.erb (3.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:35:27.119336"], ["updated_at", "2017-11-06 18:35:27.119336"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:35:27.156094"], ["updated_at", "2017-11-06 18:35:27.156094"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (16.7ms)
+  Rendered support_requests/edit.html.erb (32.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:35:27.214652"], ["updated_at", "2017-11-06 18:35:27.214652"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:35:27.217512"], ["updated_at", "2017-11-06 18:35:27.217512"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.8ms)
+  Rendered support_requests/new.html.erb (11.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:35:27.284060"], ["updated_at", "2017-11-06 18:35:27.284060"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-11-06 18:35:46 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4810.3ms)
+Completed 200 OK in 4825ms (Views: 4818.0ms | ActiveRecord: 0.0ms)
+Started GET "/members/sign_up" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering members/registrations/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (1.7ms)
+  Rendered members/registrations/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 40ms (Views: 22.5ms | ActiveRecord: 4.0ms)
+Started GET "/members/sign_up" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering members/registrations/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.2ms)
+  Rendered members/registrations/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started GET "/members/sign_up" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering members/registrations/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/registrations/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/members" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "member"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering members/registrations/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 37ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started GET "/members/sign_in" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering members/sessions/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.6ms)
+  Rendered members/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+Started GET "/members/sign_in" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering members/sessions/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/members/sign_in" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering members/sessions/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/members/sign_in" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "member"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "member"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering members/sessions/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started GET "/members/sign_in" for 127.0.0.1 at 2017-11-06 18:35:51 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering members/sessions/new.html.erb within layouts/application
+  Rendered members/shared/_links.html.erb (0.3ms)
+  Rendered members/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:36:20.860189"], ["updated_at", "2017-11-06 18:36:20.860189"]]
+  [1m[35m (2.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (15.5ms)
+  Rendered areas/edit.html.erb (33.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:36:20.914178"], ["updated_at", "2017-11-06 18:36:20.914178"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:36:20.917062"], ["updated_at", "2017-11-06 18:36:20.917062"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (3.6ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.3ms)
+  Rendered areas/new.html.erb (3.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:36:20.952521"], ["updated_at", "2017-11-06 18:36:20.952521"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.2ms)
+  [1m[35m (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:36:21.003239"], ["updated_at", "2017-11-06 18:36:21.003239"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (24.2ms)
+  Rendered support_requests/edit.html.erb (38.8ms)
+  [1m[35m (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:36:21.071929"], ["updated_at", "2017-11-06 18:36:21.071929"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:36:21.075991"], ["updated_at", "2017-11-06 18:36:21.075991"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (11.4ms)
+  Rendered support_requests/new.html.erb (12.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:36:21.141891"], ["updated_at", "2017-11-06 18:36:21.141891"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "MyString"], ["endereco", "MyString"], ["bairro", "MyString"], ["localidade", "MyString"], ["descricao", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["created_at", "2017-11-06 18:37:14.832752"], ["updated_at", "2017-11-06 18:37:14.832752"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/edit.html.erb
+  Rendered areas/_form.html.erb (14.2ms)
+  Rendered areas/edit.html.erb (31.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:37:14.881325"], ["updated_at", "2017-11-06 18:37:14.881325"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:37:14.883271"], ["updated_at", "2017-11-06 18:37:14.883271"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/index.html.erb
+  Rendered areas/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering areas/new.html.erb
+  Rendered areas/_form.html.erb (2.4ms)
+  Rendered areas/new.html.erb (3.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "areas" ("regional", "endereco", "bairro", "localidade", "descricao", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["regional", "Regional"], ["endereco", "Endereco"], ["bairro", "Bairro"], ["localidade", "Localidade"], ["descricao", "Descricao"], ["latitude", 2.5], ["longitude", 3.5], ["created_at", "2017-11-06 18:37:14.914376"], ["updated_at", "2017-11-06 18:37:14.914376"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering areas/show.html.erb
+  Rendered areas/show.html.erb (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 1], ["mes", "MyString"], ["processo_numero", "MyString"], ["solicitacao_descricao", "MyString"], ["solicitacao_regional", "MyString"], ["solicitacao_bairro", "MyString"], ["solicitacao_localidade", "MyString"], ["solicitacao_endereco", "MyString"], ["solicitacao_roteiro", "MyString"], ["rpa_codigo", 1], ["rpa_nome", "MyString"], ["solicitacao_microrregiao", "MyString"], ["solicitacao_plantao", "MyString"], ["solicitacao_origem_chamado", "MyString"], ["latitude", 1.5], ["longitude", 1.5], ["solicitacao_vitimas", "MyString"], ["solicitacao_vitimas_fatais", "MyString"], ["processo_tipo", "MyString"], ["processo_origem", "MyString"], ["processo_localizacao", "MyString"], ["processo_status", "MyString"], ["created_at", "2017-11-06 18:37:14.956903"], ["updated_at", "2017-11-06 18:37:14.956903"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/edit.html.erb
+  Rendered support_requests/_form.html.erb (17.5ms)
+  Rendered support_requests/edit.html.erb (32.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:37:15.024310"], ["updated_at", "2017-11-06 18:37:15.024310"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:37:15.026788"], ["updated_at", "2017-11-06 18:37:15.026788"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/index.html.erb
+  Rendered support_requests/index.html.erb (2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  Rendering support_requests/new.html.erb
+  Rendered support_requests/_form.html.erb (10.3ms)
+  Rendered support_requests/new.html.erb (11.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "support_requests" ("ano", "mes", "processo_numero", "solicitacao_descricao", "solicitacao_regional", "solicitacao_bairro", "solicitacao_localidade", "solicitacao_endereco", "solicitacao_roteiro", "rpa_codigo", "rpa_nome", "solicitacao_microrregiao", "solicitacao_plantao", "solicitacao_origem_chamado", "latitude", "longitude", "solicitacao_vitimas", "solicitacao_vitimas_fatais", "processo_tipo", "processo_origem", "processo_localizacao", "processo_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["ano", 2], ["mes", "Mes"], ["processo_numero", "Processo Numero"], ["solicitacao_descricao", "Solicitacao Descricao"], ["solicitacao_regional", "Solicitacao Regional"], ["solicitacao_bairro", "Solicitacao Bairro"], ["solicitacao_localidade", "Solicitacao Localidade"], ["solicitacao_endereco", "Solicitacao Endereco"], ["solicitacao_roteiro", "Solicitacao Roteiro"], ["rpa_codigo", 3], ["rpa_nome", "Rpa Nome"], ["solicitacao_microrregiao", "Solicitacao Microrregiao"], ["solicitacao_plantao", "Solicitacao Plantao"], ["solicitacao_origem_chamado", "Solicitacao Origem Chamado"], ["latitude", 4.5], ["longitude", 5.5], ["solicitacao_vitimas", "Solicitacao Vitimas"], ["solicitacao_vitimas_fatais", "Solicitacao Vitimas Fatais"], ["processo_tipo", "Processo Tipo"], ["processo_origem", "Processo Origem"], ["processo_localizacao", "Processo Localizacao"], ["processo_status", "Processo Status"], ["created_at", "2017-11-06 18:37:15.088591"], ["updated_at", "2017-11-06 18:37:15.088591"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering support_requests/show.html.erb
+  Rendered support_requests/show.html.erb (1.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regional</th>
+      <th>Endereco</th>
+      <th>Bairro</th>
+      <th>Localidade</th>
+      <th>Descricao</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= area.regional %></td>
+        <td><%= area.endereco %></td>
+        <td><%= area.bairro %></td>
+        <td><%= area.localidade %></td>
+        <td><%= area.descricao %></td>
+        <td><%= area.latitude %></td>
+        <td><%= area.longitude %></td>
+        <td><%= link_to 'Show', area %></td>
+        <td><%= link_to 'Edit', edit_area_path(area) %></td>
+        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

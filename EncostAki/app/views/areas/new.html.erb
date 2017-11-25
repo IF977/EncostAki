@@ -1,5 +1,9 @@
-<h1>New Area</h1>
-
-<%= render 'form', area: @area %>
-
-<%= link_to 'Back', areas_path %>
+<% if current_member.admin? %>
+    <h1>New Area</h1>
+    
+    <%= render 'form', area: @area %>
+    
+    <%= link_to 'Back', areas_path %>
+<%else %>
+  <p>VOCÊ NÃO TEM PERMISSÃO PARA ISSO, APENAS UM ADMINISTRADOR TEM ACESSO!</p>
+<%end%>

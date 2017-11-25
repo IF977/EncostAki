@@ -6,7 +6,10 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-
+  def update
+      @user = User.find(params[:id])
+      @user.update_attribute(:avatar, params[:user][:avatar])
+  end
   # POST /resource
   # def create
   #   super

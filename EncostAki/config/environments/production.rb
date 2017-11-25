@@ -1,10 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # mudar pra o heroku config.action_mailer.default_url_options = { host: 'localhost:8080' }
   # Code is not reloaded between requests.
   config.serve_static_assets = true
   config.cache_classes = true
-
+  config.action_mailer.default_url_options = { :host => 'limitless-savannah-53252.herokuapp.com' }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -89,4 +89,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  ENV['FACEBOOK_APP_ID'] = "510749972610314";
+  ENV['FACEBOOK_APP_SECRET'] = "9cdf6fa3e0a9c7c745e2dc7c5e90717b";
+
 end

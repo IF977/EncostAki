@@ -8,7 +8,7 @@ Feature: Login de usuários
     When I click on the Login link 
     Then I should see Sign in page
     
-  Scenario: Criar usuario sem email ou senha (Sad path)
+  Scenario: Logar usuario sem email ou senha (Sad path)
     Given I am on the Sign In page
     When I click on the Login button
     Then I should see the Login page again

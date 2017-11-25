@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag "css/bootstrap" %>
     <link href="css/cadastro.css" type="text/css"  rel="stylesheet">
 </head>
-
+<%= devise_error_messages! %>
 <body>
   <div class="container-fluid">
     <div class="row" id="site">
@@ -20,8 +20,7 @@
           <h1>Cadastro</h1>
           <%= image_tag("logopinfinal.png",id:"logopin")%>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
-          
+
             <div class="field">
               <p>Email</p>
               <%= f.email_field :email, autofocus: true %>
@@ -38,13 +37,16 @@
             <div class="field">
               <p>Confirmar Senha</p>
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              
             </div>
           
             <div class="actions">
               <button class="btn btn-warning"><% f.submit %>Cadastrar</button>
+              
             </div>
             
 <% end %>
-<%= link_to image_tag("loginfb.PNG"), "/members/auth/facebook", id: "facebook" %>
-<p>Já possui conta? <%= link_to "Login",  new_member_session_path %></p>
+
+
+<p>Já possui conta? <%= render "members/shared/links" %></p>
 <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>

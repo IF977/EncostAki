@@ -1,5 +1,6 @@
 class SupportRequestsController < ApplicationController
   before_action :set_support_request, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_member!
 
   # GET /support_requests
   # GET /support_requests.json
@@ -10,6 +11,7 @@ class SupportRequestsController < ApplicationController
   # GET /support_requests/1
   # GET /support_requests/1.json
   def show
+    @calendario = SupportRequest.select('solicitacao_data')
   end
 
   # GET /support_requests/new
@@ -104,5 +106,9 @@ class SupportRequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def support_request_params
       params.require(:support_request).permit(:ano, :mes, :processo_numero, :solicitacao_data, :solicitacao_hora, :solicitacao_descricao, :solicitacao_regional, :solicitacao_bairro, :solicitacao_localidade, :solicitacao_endereco, :solicitacao_roteiro, :rpa_codigo, :rpa_nome, :solicitacao_microrregiao, :solicitacao_plantao, :solicitacao_origem_chamado, :latitude, :longitude, :solicitacao_vitimas, :solicitacao_vitimas_fatais, :processo_tipo, :processo_origem, :processo_localizacao, :processo_status, :processo_data_conclusao)
+    end
+    
+    def calendario
+      
     end
 end

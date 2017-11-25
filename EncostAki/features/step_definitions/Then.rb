@@ -6,7 +6,7 @@ Then(/^I should see Sign in page$/) do
     visit(new_member_session_path)
 end
 
-Then(/^I should see the Cadastro page again$/) do  
+Then(/^I should see the Cadastro page again$/) do 
    visit(new_member_registration_path)
 end
 
@@ -16,4 +16,8 @@ end
 
 Then(/^I should see the text ([^"]*)$/) do |text|
     expect(page).to have_content(text)
+end
+
+Then (/^I should be on the page with the title "([^"]*)"$/) do |page_title|
+  expect(page).to have_title page_title
 end

@@ -1,0 +1,5 @@
+<h3>Cancelar minha conta!</h3>
+
+<p>Você não está satisfeito? <%= button_to "Cancelar minha conta", registration_path(current_member), data: { confirm: "Você tem certeza disso?" }, method: :delete %></p>
+
+<%= link_to "Voltar", :back %>

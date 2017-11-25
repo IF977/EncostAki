@@ -1,5 +1,6 @@
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_member!
 
   # GET /areas
   # GET /areas.json
@@ -14,7 +15,7 @@ class AreasController < ApplicationController
 
   # GET /areas/new
   def new
-    @area = Area.new
+     @area = Area.new
   end
   
   #Importar dados do CSV
