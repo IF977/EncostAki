@@ -1,0 +1,8 @@
+<h1> Estatísticas </h1>
+<p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
+
+<%= pie_chart Area.group(:localidade).count %>
+
+<%= pie_chart Area.group(:bairro).count %>
+
+<%= bar_chart Area.group(:localidade).count %>
