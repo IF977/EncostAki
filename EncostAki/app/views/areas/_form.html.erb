@@ -1,52 +1,80 @@
-<%= form_with(model: area, local: true) do |form| %>
-  <% if area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	  <%= stylesheet_link_tag "css/bootstrap" %>
+    <link href="css/novaarea.scss" type="text/css"  rel="stylesheet">
+</head>
 
-      <ul>
-      <% area.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :regional %>
-    <%= form.text_field :regional, id: :area_regional %>
-  </div>
 
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco, id: :area_endereco %>
-  </div>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<div id="esquerda-l">
+				</div>
+			</div>
+			<div class="col-md-4 text-center col-sm-4 text-center">
+        <div id="center">
+          <h1>Nova Área</h1>
+            <%= image_tag('logopinfinal.png', id:'logopin') %>
+          <%= form_with(model: area, local: true) do |form| %>
+            <% if area.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+          
+                <ul>
+                <% area.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+          
+            <div class="field">
+              <p>Regional</p>
+              <%= form.text_field :regional, id: :area_regional %>
+            </div>
+          
+            <div class="field">
+              <p>Endereço</p>
+              <%= form.text_field :endereco, id: :area_endereco %>
+            </div>
+          
+            <div class="field">
+              <p>Bairro</p>
+              <%= form.text_field :bairro, id: :area_bairro %>
+            </div>
+          
+            <div class="field">
+              <p>Localidade</p>
+              <%= form.text_field :localidade, id: :area_localidade %>
+            </div>
+          
+            <div class="field">
+              <p>Descrição</p>
+              <%= form.text_field :descricao, id: :area_descricao %>
+            </div>
+          
+            <div class="field">
+              <p>Latitude</p>
+              <%= form.text_field :latitude, id: :area_latitude %>
+            </div>
+          
+            <div class="field">
+              <p>Longitude</p>
+              <%= form.text_field :longitude, id: :area_longitude %>
+            </div>
+          
+            <div class="actions">
+            <button class="btn btn-warning"><% form.submit %>Criar Área</button>
+            </div>
+    </body>
+          <% end %>
 
-  <div class="field">
-    <%= form.label :bairro %>
-    <%= form.text_field :bairro, id: :area_bairro %>
-  </div>
-
-  <div class="field">
-    <%= form.label :localidade %>
-    <%= form.text_field :localidade, id: :area_localidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_field :descricao, id: :area_descricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :area_latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :area_longitude %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<p>Voltar ao <%= link_to 'Menu Principal', root_path %></p>

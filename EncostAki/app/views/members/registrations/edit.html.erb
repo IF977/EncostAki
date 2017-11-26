@@ -1,44 +1,66 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	  <%= stylesheet_link_tag "css/bootstrap" %>
+	  <%= stylesheet_link_tag "membersedit" %>
+</head>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div>
-    Add Your <%= f.label :avatar %>:
-    <%= f.file_field :avatar %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(Deixe em branco esse campo e o de confirmação caso você não queira alterar a senha)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <p1><em><%= @minimum_password_length %> caracteres ao mínimo</em></p1>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(Nós precisamos que você digite sua senha atual para confirmar as mudanças)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Atualizar dados" ,  data: { confirm: "Seus dados serão atualizados! Tem certeza disso?" } %>
-  </div>
-<% end %>
-
-<%= link_to "Voltar", "/members/1" %>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<div id="esquerda-l">
+				</div>
+			</div>
+			<div class="col-md-4 text-center col-sm-4 text-center">
+        <div id="meio">
+          <h1>Editar Perfil</h1>
+          <%= image_tag('logopinfinal.png', id:'logopi') %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+              <p>Adicione uma foto:</p>
+              <p2><%= f.file_field :avatar %></p2>
+            </div>
+          
+            <div class="field">
+              <p>E-mail:</p>
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+          
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+          
+            <div class="field">
+              <p>Senha:</p> <p2>(Deixe em branco esse campo e o de confirmação</br> caso você não queira alterar a senha)</p2></br>
+              <%= f.password_field :password, autocomplete: "off" %>
+              <% if @minimum_password_length %>
+                <br />
+                <p2><em><%= @minimum_password_length %> caracteres no mínimo</em></p2>
+              <% end %>
+            </div>
+          
+            <div class="field">
+              <p>Confirme a senha:</p>
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+          
+            <div class="field">
+             <p>Senha atual:</p><p2>(Nós precisamos que você digite sua senha atual</br> para confirmar as mudanças)</p2><br />
+              <%= f.password_field :current_password, autocomplete: "off" %>
+            </div>
+          
+            <div class="actions">
+              <button class="btn btn-warning"><% f.submit %>Confirmar</button>
+            </div>
+          <% end %>
+           
+          <p><%= link_to "Voltar", "/members/1" %></p>
+          <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>

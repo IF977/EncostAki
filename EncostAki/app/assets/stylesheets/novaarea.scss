@@ -1,0 +1,38 @@
+/* Corpo */
+@font-face {
+	font-family: 'Bree Serif', serif;
+}
+
+div#center {
+	height: 670px;
+	background-color: #5C3317;
+	border-radius: 5px;
+	
+}
+
+div#center p{
+	color: white;
+	font: 18px Bree Serif, Arial, Tahoma, Sans-serif;
+}
+
+div#center h1{
+	margin-top: 5px;
+	margin-right: 25px;
+	padding-top: 5px;
+	color: white;
+	font: 35px Bree Serif, Arial, Tahoma, Sans-serif;
+}
+
+#logopin{
+	width: 2em;
+	margin-right: -170px;
+	margin-top: -90px;
+}
+
+
+
+div#center button{
+	font: 15px Bree Serif, Sans-serif;
+	width: 180px;
+}
+
