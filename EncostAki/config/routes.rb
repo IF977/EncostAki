@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'control_members/index'
 
   get 'control_users/index'
-
+  
+  get 'info/index'
+  
   resources :support_requests
   resources :areas
   resources :tickets

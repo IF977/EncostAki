@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <%= stylesheet_link_tag "css/bootstrap" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body>
+    <div class="container">
+        <%= render partial: "navbar" %> 
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="jumbotron" style="background-color: #5C3317; color: white; font-family: 'Bree Serif', serif;">
+                  <h1>Informações</h1> <%= image_tag("logopinfinal.png",id:"pin_info")%>
+                  <br>
+                  <p style="font-family: 'Bree Serif', serif;">Para mais informações, entre em contato com a Defesa Social através do número: 
+                  </p>
+                  <i class="fa fa-phone-square" aria-hidden="true" style="font-size:50px; margin-bottom:100px;"></i><a style="font-size:55px; margin-left:10px;" href="tel:+558131812490">(81) 3181-2490</a>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
