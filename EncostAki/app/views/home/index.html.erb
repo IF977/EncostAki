@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <%= stylesheet_link_tag "navbar" %>
+
+
 
 </head>
 
@@ -15,74 +18,71 @@
 
 <p id="notice"><%= notice %></p>
 <div class="container">
-    <div class="container">
-        <%= render partial: "navbar" %> 
-    </div>
+    <%= render partial: "navbar" %> 
 </div>
-
-<div id="esquerda">
-<div id="map">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-<script type= "text/javascript">
-            //Opções de iniciação do mapa
-
-            function initMap(la, lg, end, des, latLng) {
-                var cin = {lat: -8.055590, lng: -34.951344}
-                var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: cin
-              });
-                //Carregar dados direto do json
-               $.getJSON('dados.json', function(pontos) {
-                 for (var i = 0; i < pontos.points.length; i++){
-                   var la = pontos.points[i].latitude;
-                   var lg = pontos.points[i].longitude;
-                   var end = pontos.points[i].endereco;
-                   var des = pontos.points[i].descricao;
-                   var latLng = {lat: la,lng: lg};
-            
-                   var contentString = '<h2>Local:</h2>'+
-                    '<p>Endereço: '+end+'</p>'+
-                    '<p>Descrição: '+des+'</p>';
+    
+<div class="container">
+    <div id="esquerda">
+        <div id="map" style="" >
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>D8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        
+        <script type= "text/javascript">
+                    //Opções de iniciação do mapa
+        
+                    function initMap(la, lg, end, des, latLng) {
+                        var cin = {lat: -8.128689, lng: -34.950349}
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 14,
+                        center: cin
+                      });
+                        //Carregar dados direto do json
+                       $.getJSON('dados.json', function(pontos) {
+                         for (var i = 0; i < pontos.points.length; i++){
+                           var la = pontos.points[i].latitude;
+                           var lg = pontos.points[i].longitude;
+                           var end = pontos.points[i].endereco;
+                           var des = pontos.points[i].descricao;
+                           var latLng = {lat: la,lng: lg};
+                    
+                           var contentString = '<h2>Local:</h2>'+
+                            '<p>Endereço: '+end+'</p>'+
+                            '<p>Descrição: '+des+'</p>';
+                             
+                           var marker = new google.maps.Marker({
+                           position: latLng,
+                           map: map,
+                           icon: 'logopin.png'
+                           });
+                           
+                           
+                           google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
                      
-                   var marker = new google.maps.Marker({
-                   position: latLng,
-                   map: map,
-                   icon: 'logopin.png'
-                   });
-                   
-                   
-                   google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
-             
-                 }
-              });
-              
-              
-              function getInfoCallback(map, content) {
-                  
-                  var infowindow = new google.maps.InfoWindow({content: content});
-                  
-                  return function() {
+                         }
+                      });
+                      
+                      
+                      function getInfoCallback(map, content) {
                           
-                          infowindow.setContent(content); 
-                          infowindow.open(map, this);
+                          var infowindow = new google.maps.InfoWindow({content: content});
                           
-                      };
-              }
-            }
-
-        </script>
+                          return function() {
+                                  
+                                  infowindow.setContent(content); 
+                                  infowindow.open(map, this);
+                                  
+                              };
+                      }
+                    }
         
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
-</script>
-</div>
-        
+                </script>
+            
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap"> </script>
+        </div>
+            
+    </div>
 </div>
 </body>
 </html>
