@@ -11,47 +11,26 @@
 </head>
 
 <body>
+
+
+<p id="notice"><%= notice %></p>
 <div class="container">
-    <section class="header">
-        <%= image_tag("logofinal.png", id:"logo")%>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <nav class="navbar navbar-inverse">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                  </button>
-                  
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                  <ul class="nav navbar-nav">
-                    <li class=""><%= link_to "Home", "/" %></li>
-                    <li><a href="#">Chamados</a></li>
- 		            <li><a href="#">Informações</a></li>
- 		            <li><a href="#">Estatísticas</a></li>
- 		            <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
- 		            <li><%= link_to "Áreas de Risco", areas_path %></li>
- 		            
-                
-                  </ul>
-                   <% if member_signed_in? %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to current_member.email, "/" %></li>
-                      <li><%= image_tag(current_member.smallimage)%></li>
-                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
-                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-                    </ul>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jqu,ery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <div class="container">
+        <%= render partial: "navbar" %> 
+    </div>
+</div>
+
+<div id="esquerda">
+<div id="map">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/markerclustererplus/src/markerclusterer.js"></script>
 
 
 <script type= "text/javascript">
             //Opções de iniciação do mapa
+
             function initMap(la, lg, end, des, latLng) {
                 var cin = {lat: -8.055590, lng: -34.951344}
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -96,41 +75,16 @@
                       };
               }
             }
-            
-           
- 
-        
+
         </script>
         
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
-        </script>
-                  <% else %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to "Login", new_member_session_path %></li>
-                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li
-                      
-                    </ul>
-                    <% end %>
-                
-                </div>
-              </div>
-            </nav>    	    
-            </div>
-                       
-        </div>
-    </section>
-    
-    
-    
+</script>
 </div>
-
-        <div id="esquerda">
-        <div id="map"></div>
         
-        </div>
-        
-
+</div>
 </body>
 </html>
 
+            

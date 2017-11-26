@@ -1,6 +1,8 @@
-<h1> Estatísticas </h1>
-<p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
+<%= render partial: "navbar" %> 
 
+<div style="text-align:center">
+    <h1> Estatísticas </h1>
+</div>
 <%= pie_chart Area.group(:localidade).count %>
 
 <%= pie_chart Area.group(:bairro).count %>
