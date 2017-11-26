@@ -1,4 +1,4 @@
-<img src="https://image.ibb.co/bLW1fw/logo_Final.png"/>
+<img src="https://image.ibb.co/d5CEyR/logofinal_png.png"/>
 
 
 Link da aplicação no Heroku: https://limitless-savannah-53252.herokuapp.com/
