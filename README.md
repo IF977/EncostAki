@@ -1,7 +1,7 @@
 <img src="https://image.ibb.co/d5CEyR/logofinal_png.png"/>
 
 
-Link da aplicação no Heroku: https://limitless-savannah-53252.herokuapp.com/
+Link da aplicação no Heroku: https://encostakiapp.herokuapp.com/
 
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática (CIn) da Universidade Federal de Pernambuco (UFPE).
 
