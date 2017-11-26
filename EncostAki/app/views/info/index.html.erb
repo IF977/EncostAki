@@ -4,8 +4,9 @@
   <meta charset="utf-8">
     <title>Encostaki</title>
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-    <%= stylesheet_link_tag "css/bootstrap" %>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag "css/bootstrap" %>
 
     
 </head>
@@ -13,18 +14,46 @@
     <div class="container">
         <%= render partial: "navbar" %> 
     </div>
-    <div class="container">
+    <div class="container" style="background-color: #5C3317; border-radius: 10px;">
         <div class="row">
             <div class="col-md-12 ">
                 <div class="jumbotron" style="background-color: #5C3317; color: white; font-family: 'Bree Serif', serif;">
-                  <h1>Informações</h1> <%= image_tag("logopinfinal.png",id:"pin_info")%>
+                  <h1>Sobre o Projeto:</h1>
+                  <p>É uma aplicação Web, SaaS, que tem como objetivo auxiliar a população a monitorar áreas de risco,
+                  deslizamento e chamados abertos durante o período dos últimos 2 anos (2015-2017), a partir dos dados
+                  obtidos no site de dados do Recife. Realiza busca na base de dados no local informado pelo usuário,
+                  gera dados no mapa com localização dos pontos de risco, informa sobre chamados abertos e o grau de vulnerabilidade da região.</p>
+                  
+                  <h1>Equipe:</h1>
+                  <div class="col-md-3">
+                  <%= image_tag("Eric.jpg",id:"equipe")%>
+                  <p style="font-family: 'Bree Serif', serif;">Eric Araújo</p>
+                  </div>
+                  <div class="col-md-3">
+                  <%= image_tag("Gustavo.jpg",id:"equipe")%> </a>
+                  <p style="font-family: 'Bree Serif', serif;">Gustavo Lopes</p>
+                  </div>
+                  <div class="col-md-3">
+                  <%= image_tag("Peidin.jpg",id:"equipe")%></a>
+                  <p style="font-family: 'Bree Serif', serif;">Pedro Vinícius</p>
+                  </div>
+                  <div class="col-md-3">
+                  <%= image_tag("Renata.jpg",id:"equipe")%>
+                  <p style="font-family: 'Bree Serif', serif;">Renata Amorim</p>
+                  </div>
+                  
+                  <h1>Dúvidas</h1> <%= image_tag("logopinfinal.png",id:"pin_info")%>
                   <br>
                   <p style="font-family: 'Bree Serif', serif;">Para mais informações, entre em contato com a Defesa Social através do número: 
                   </p>
-                  <i class="fa fa-phone-square" aria-hidden="true" style="font-size:50px; margin-bottom:100px;"></i><a style="font-size:55px; margin-left:10px;" href="tel:+558131812490">(81) 3181-2490</a>
+                  <i class="fa fa-phone-square" aria-hidden="true" style="font-size:50px; margin-bottom:100px;"></i><a style="font-size:55px; margin-left:10px; color:#FF7F00;" href="tel:+558131812490">(81) 3181-2490</a>
                   
                 </div>
             </div>
         </div>
     </div>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
+</html>
