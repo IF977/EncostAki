@@ -11,7 +11,6 @@ class SupportRequestsController < ApplicationController
   # GET /support_requests/1
   # GET /support_requests/1.json
   def show
-    @calendario = SupportRequest.select('solicitacao_data')
   end
 
   # GET /support_requests/new
@@ -48,9 +47,12 @@ class SupportRequestsController < ApplicationController
                               :processo_localizacao       => row[22],
                               :processo_status            => row[23],
                               :processo_data_conclusao    => row[24])
-      c.save
+                              
+      if row[5] != 'Teste' and row[5] != 'teste' and row[5]  != 'TESTE' and row[5] != 'texte'
+        c.save
+      end
     end
-#    redirect_to :action => "index" and return
+    #redirect_to :action => "index" and return
   end
 
   # GET /support_requests/1/edit
@@ -106,9 +108,5 @@ class SupportRequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def support_request_params
       params.require(:support_request).permit(:ano, :mes, :processo_numero, :solicitacao_data, :solicitacao_hora, :solicitacao_descricao, :solicitacao_regional, :solicitacao_bairro, :solicitacao_localidade, :solicitacao_endereco, :solicitacao_roteiro, :rpa_codigo, :rpa_nome, :solicitacao_microrregiao, :solicitacao_plantao, :solicitacao_origem_chamado, :latitude, :longitude, :solicitacao_vitimas, :solicitacao_vitimas_fatais, :processo_tipo, :processo_origem, :processo_localizacao, :processo_status, :processo_data_conclusao)
-    end
-    
-    def calendario
-      
     end
 end

@@ -1,11 +1,16 @@
-<%= render partial: "navbar" %> 
+<h1> Estatísticas </h1>
+<p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
 
-<div style="text-align:center">
-    <h1> Estatísticas </h1>
-</div>
+<h2> Áreas de risco </h2>
 <%= pie_chart Area.group(:localidade).count %>
 
 <%= pie_chart Area.group(:bairro).count %>
 
+<%= bar_chart Area.group(:localidade).count %>
 
 <%= bar_chart Area.group(:localidade).count %>
+
+<h3> Chamados </h3>
+<%= bar_chart SupportRequest.group(:processo_tipo).count %>
+
+<%= pie_chart SupportRequest.group(:ano).count %>
