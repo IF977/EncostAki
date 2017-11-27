@@ -1,16 +1,43 @@
-<% if current_member.name != nil %>
-    <p><%= image_tag(current_member.smallimage) %></p>
-    <p><%= "Olá, #{current_member.name.capitalize} !" %></p>
-<%else%>
-    <p><%= image_tag(current_member.avatar.url(:thumb)) %></p>
-    <p><%= "Olá, #{@membername.capitalize} !" %></p>
-<% end %> 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	  <%= stylesheet_link_tag "css/bootstrap" %>
+	  <%= stylesheet_link_tag "membersedit" %>
+</head>
 
 
-<p>O que você gostaria de fazer?</p>
-<p></p>
-<p><%= link_to "Checar as estatísticas", statistcs_path %></p>
-<p><%= link_to "Cancelar minha conta", edit_member_path %></p>
-<p><%= link_to "Voltar ao menu principal", root_path %></p>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<div id="esquerda-l">
+				</div>
+			</div>
+			<div class="col-md-4 text-center col-sm-4 text-center">
+        <div id="meio-m">
+            <% if current_member.name != nil %>
+                <h2><%= "Olá, #{current_member.name.capitalize} !" %></h2>
+                <%= image_tag('logopinfinal.png', id:'logop') %>
+                <p><%= image_tag(current_member.smallimage) %></p>
+                
+            <%else%>
+                <h2><%= "Olá, #{@membername.capitalize} !" %></h2>
+                <%= image_tag('logopinfinal.png', id:'logop') %>
+                <p><%= image_tag(current_member.avatar.url(:medium)) %></p>
+                
+            <% end %> 
+            
+            
+            <p>O que você gostaria de fazer?</p>
+            <p></p>
+            <p><%= link_to "Checar as estatísticas", statistcs_path %></p>
+            <p><%= link_to "Alterar meus dados", edit_member_registration_path %></p>
+            <p><%= link_to "Cancelar minha conta", edit_member_path %></p>
+            <p><%= link_to "Voltar ao menu principal", root_path %></p>
 
 

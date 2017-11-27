@@ -1,16 +1,43 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Encostaki</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	  <%= stylesheet_link_tag "css/bootstrap" %>
+	  <%= stylesheet_link_tag "membersedit" %>
+</head>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "members/shared/links" %>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<div id="esquerda-l">
+				</div>
+			</div>
+			<div class="col-md-4 text-center col-sm-4 text-center">
+        <div id="meio">
+          <h1>Esqueceu a senha?</h1> <%= image_tag('logopinfinal.png', id:'pin') %>
+          
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= devise_error_messages! %>
+          
+            <div class="field">
+              </br>
+              </br>
+              </br>
+              <p>E-mail</p>
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+          
+            <div class="actions">
+              <button class='btn btn-warning'><% f.submit "Enviar as instruções para resetar a senha" %>Enviar</button>
+            </div>
+          <% end %>
+          
+          <%= render "members/shared/links" %>
+          <p>Voltar ao <%= link_to "Menu Principal", root_path %></p>
+      </div>

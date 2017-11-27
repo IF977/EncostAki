@@ -39,7 +39,7 @@ class Member < ApplicationRecord
     "http://graph.facebook.com/#{self.uid}/picture?type=small" 
   end
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/default.jpg"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50#" }, :default_url => "/images/:style/default.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   after_update :send_password_change_email, if: :needs_password_change_email?

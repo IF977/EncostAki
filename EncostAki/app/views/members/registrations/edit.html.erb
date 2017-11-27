@@ -24,11 +24,15 @@
           <%= image_tag('logopinfinal.png', id:'logopi') %>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
-            <div>
-              <p>Adicione uma foto:</p>
-              <p2><%= f.file_field :avatar %></p2>
+            <div class="field">
+               
+                  
+                  <div class="col-sm-400">
+                      <p>Trocar foto do perfil<%= f.file_field :avatar, class: 'col-md-40 text-center col-sm-5 text-right' %></p>
+                  </div>
+              
             </div>
-          
+            <br/>
             <div class="field">
               <p>E-mail:</p>
               <%= f.email_field :email, autofocus: true %>

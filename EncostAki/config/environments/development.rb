@@ -4,11 +4,13 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.action_mailer.default_url_options = { host: 'localhost:8080' }
+  config.action_mailer.default_url_options = { host: 'clone-gustavo-2511-pvls.c9users.io' }
   #config.action_mailers.default_url_options = { :host => 'encostaki-1-pvls.c9.io' }
-  
+  ENV["GMAIL_DOMAIN"]="gmail.com"
+  ENV["GMAIL_USERNAME"]="encostakiapp@gmail.com"
+  ENV["GMAIL_PASSWORD"]="Encostakiapp2017"
   config.cache_classes = false
-
+  config.action_mailer.perform_deliveries = true
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -30,7 +32,17 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'encostakiapp@gmail.com',
+    password:             'Encostakiapp2017',
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.perform_caching = false
 

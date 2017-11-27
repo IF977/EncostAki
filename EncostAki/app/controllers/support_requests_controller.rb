@@ -1,6 +1,6 @@
 class SupportRequestsController < ApplicationController
   before_action :set_support_request, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_member!
+  before_action :authenticate_member!
 
   # GET /support_requests
   # GET /support_requests.json

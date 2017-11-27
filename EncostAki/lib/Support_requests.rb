@@ -1,0 +1,30 @@
+class SupportRequest 
+    attr_accessor :ano, :mes, :processo_numero, :solicitacao_data, :solicitacao_hora, :solicitacao_descricao, :solicitacao_regional, :solicitacao_bairro, :solicitacao_localidade, :solicitacao_endereco, :solicitacao_roteiro, :rpa_codigo, :rpa_nome, :solicitacao_microrregiao, :solicitacao_plantao, :solicitacao_origem_chamado, :latitude, :longitude, :solicitacao_vitimas, :solicitacao_vitimas, :processo_tipo, :processo_origem, :processo_localizacao, :processo_status, :processo_data_conclusao 
+    def initialize
+       @ano = "2017"
+       @mes = "Janeiro"
+       @processo_numero = "21311313131"
+       @solicitacao_data = "20012017"
+       @solicitacao_hora = "15h30"
+       @solicitacao_descricao = "1212121121"
+       @solicitacao_regional = "21212112121"
+       @solicitacao_bairro  = "centro"
+       @solicitacao_localidade = "No recife"
+       @solicitacao_endereco = "Rua alguma coisa do Recife"
+       @solicitacao_roteiro = "Em Recife"
+       @rpa_codigo = "21313111"
+       @rpa_nome = "212113"
+       @solicitacao_microrregiao = "2121211212" 
+       @solicitacao_plantao = "teste"
+       @solicitacao_origem_chamado = "teste"
+       @latitude = "-8.128689"
+       @longitude = "-8.128689"
+       @solicitacao_vitimas = "212121122"
+       @solicitacao_vitimas_fatais = "12121211"
+       @processo_tipo = "processo 21"
+       @processo_origem = "Recife"
+       @processo_localizacao = "teste"
+       @processo_status = "Andamento"
+       @processo_data_conclusao = "20012017"
+    end
+end

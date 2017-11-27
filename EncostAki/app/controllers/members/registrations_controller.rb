@@ -3,12 +3,10 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+
   def update
-      @user = User.find(params[:id])
-      @user.update_attribute(:avatar, params[:user][:avatar])
+      @member = Member.find(params[:id])
+      @member.update_attribute(:avatar, params[:member][:avatar])
   end
   # POST /resource
   # def create
