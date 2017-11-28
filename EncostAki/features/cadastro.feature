@@ -5,26 +5,30 @@ Feature: Cadastro de usuários
 
 Background:
    Given I am on the Sign Up page
-   
+
+@javascript   
 Scenario: Acessar tela de cadastro (Happy path)
     Given I am on the home page
     When I click on the Cadastrar link 
     Then I should see Sign up page
 
+@javascript
 Scenario: Realizar cadastro (Happy path)
     When I put user@user.com on the member_email input
     When I put 123456 on the member_password input
     And I put 123456 on the member_password_confirmation input
     When I click on the Cadastrar button
-    Then I should see the text Sair
+    Then I should see the text Welcome! You have signed up successfully.
 
+@javascript
 Scenario: Realizar cadastro com senha curta (Sad path)
     When I put user@user.com on the member_email input
     When I put 1234 on the member_password input
     And I put 1234 on the member_password_confirmation input
     When I click on the Cadastrar button
     Then I should see the text Password is too short
-    
+
+@javascript    
 Scenario: Criar usuario sem email (Sad path)
     When I put 123456 on the member_password input
     And I put 123456 on the member_password_confirmation input

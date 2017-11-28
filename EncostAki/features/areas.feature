@@ -2,18 +2,37 @@ Feature: Acessar Áreas de Risco
   As a User
   I would like to access the risk areas
   To be able to see all registered risk areas 
-  
-Scenario: Acessar Áreas sem estar logado (Sad path)
+
+@javascript  
+Scenario: Visualizar Áreas sem estar logado(Sad path)
   Given I am on the home page
-  When I click on the Áreas de Risco link
-  Then I should see the text Login
+  Then I should not see the text Áreas de Risco
   
-Scenario: Acessar Áreas estando logado (Happy path)
+@javascript  
+Scenario: Visualizar Áreas sem estar logado como admin(Sad path)
   Given I am on the home page
-  When I click on the Áreas de Risco link
-  And I click on the Sign up link
-  When I put user@user.com on the member_email input
-  When I put 123456 on the member_password input
-  And I put 123456 on the member_password_confirmation input
-  When I click on the Cadastrar button
- Then I should see the text Areas
+  When I am logged in with email teste@teste.com and password 123456
+  Then I should not see the text Áreas de Risco
+
+@javascript  
+Scenario: Visualizar botão de Áreas estando logado como admin (Happy path)
+  Given I am on the home page
+  When I am logged in with email admin@admin.com and password 123456
+  Then I should see the text Áreas de risco
+
+@javascript 
+Scenario: Visualizar todas Áreas estando logado como admin(Happy path)
+  Given I am on the home page
+  When I am logged in with email admin@admin.com and password 123456
+  When I put my mouse over risk_areas_button
+  And I click on the view_areas link
+  Then I should see the text Areas
+  
+@javascript 
+Scenario: Visualizar pagina de criar área estando logado admin(Happy path)
+  Given I am on the home page
+  When I am logged in with email admin@admin.com and password 123456
+  When I put my mouse over risk_areas_button
+  And I click on the create_area link
+  Then I should see the text Nova Área
+ 

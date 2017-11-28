@@ -1,10 +1,10 @@
 <%= image_tag("logofinal.png", id:"logo")%>
 <div class="custom_navbar">
        <%= link_to "Home", "/" %>
- 		   <%= link_to "Informações", info_index_path %> 
+       <%= link_to "Informações", info_index_path %> 
         
 <% if member_signed_in? %>
-  <%= link_to "Estatísticas", statistcs_path %> 		           
+  <%= link_to "Estatísticas", statistcs_path %>                
    <% if current_member.email == "admin@admin.com"
         current_member.role = :admin
         current_member.save
@@ -33,13 +33,13 @@
         </div>
       </div>
          <% if current_member.admin?%>
-          <div class="custom_dropdown">
+          <div class="custom_dropdown" id="risk_areas_button">
             <button class="dropbtn">Áreas de risco
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="custom_dropdown-content">
-              <%= link_to "Visualizar todas áreas de Risco", areas_path %>
-              <%= link_to "Cadastro de Áreas de Risco", new_area_path %>
+              <%= link_to "Visualizar todas áreas de Risco", areas_path, id: "view_areas" %>
+              <%= link_to "Cadastro de Áreas de Risco", new_area_path, id: "create_area" %>
             </div>
           </div>         
               
@@ -48,22 +48,20 @@
       <% end %> 
 
 <div class="custom_dropdown">
-    <button class="dropbtn">Chamados
+    <button class="dropbtn" id="request_button">Chamados
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="custom_dropdown-content">
-      <%= link_to "Visualizar todos chamados", support_requests_path %>
-      <%= link_to "Abrir chamado", new_support_request_path %>
+      <%= link_to "Visualizar todos chamados", support_requests_path, id: "view_requests" %>
+      <%= link_to "Abrir chamado", new_support_request_path, id: "create_request" %>
     </div>
 </div>                
 <% else %>
 <div class="log_links">
 <%= link_to "Login", new_member_session_path %>
 <%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar"%>  
-</div>             		     
+</div>                     
 <% end %>
 
 </div>
 <br>
-
-
