@@ -3,6 +3,8 @@
 
 Link da aplicação no Heroku: https://encostakiapp.herokuapp.com/
 
+Screencast da Aplicação: https://www.youtube.com/watch?v=_yINGTh-PKQ
+
 Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática (CIn) da Universidade Federal de Pernambuco (UFPE).
 
 <h2>Equipe:</h2>
