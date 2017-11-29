@@ -20,7 +20,7 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 <h2>Descrição:</h2>
 
-É uma aplicação Web, SaaS, que tem como objetivo auxiliar a população a monitorar áreas de risco, deslizamento e chamados abertos durante o período dos últimos 2 anos (2015-2017), a partir dos dados obtidos no site de dados do Recife (http://dados.recife.pe.gov.br). Realiza busca na base de dados no local informado pelo usuário, gera dados no mapa com localização dos pontos de risco, informa sobre chamados abertos para colocação de lonas e o grau de vulnerabilidade da região.
+É uma aplicação Web, SaaS, que tem como objetivo auxiliar a população a monitorar áreas de risco, deslizamento e chamados abertos durante o período dos últimos 2 anos (2015-2017), a partir dos dados obtidos no site de dados abertos do Recife (http://dados.recife.pe.gov.br). Com esses dados fornece informações e estatísticas, gera dados no mapa com localização dos pontos de risco, informa sobre chamados abertos para colocação de lonas e o grau de vulnerabilidade da região.
 	
 <h2>Justificativa:</h2>
 
