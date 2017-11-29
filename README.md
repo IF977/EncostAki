@@ -24,4 +24,4 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 	
 <h2>Justificativa:</h2>
 
-Com dados de 2016, Recife possuía 140 pontos em áreas de morro com risco alto de deslizamento, segundo a Secretaria Executiva de Defesa Civil da capital. Capital tem 65% do território em encostas ou ladeiras. Nossa aplicação visa ajudar o cidadão a monitorar as áreas de risco e se precaver, ajudando a evitar acidentes e verificando também se durante o período dos últimos 2 anos houve algum chamado aberto, se houve e quais medidas preventivas foram tomadas, como colocação de lona, e o histórico de acidentes desse período.
+Com dados de 2016, Recife possuía 140 pontos em áreas de morro com risco alto de deslizamento, segundo a Secretaria Executiva de Defesa Civil da capital. Capital tem 65% do território em encostas ou ladeiras. Nossa aplicação visa ajudar o cidadão a monitorar as áreas de risco e se precaver, ajudando a evitar acidentes e verificando também se durante o período dos últimos 2 anos houve algum chamado aberto, se houve vítimas nesse chamado e estatísticas.
