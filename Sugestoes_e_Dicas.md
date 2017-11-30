@@ -47,6 +47,27 @@ de onde nós aprendemos a utilizá-la : <br/>
 - https://www.youtube.com/watch?v=kkt-tnKy_9Q <br/>
 > Em considerações finais, o que tenho a dizer é, se precisam dessas funcionalidades nas suas aplicações, usem e abusem dessas ferramentas, pois adiantam bastante o desenvolvimento,
  além de proporcionar uma visão melhor de como tudo isso funciona.
+ 
+ ## Action Cable
+
+> Utilizamos o Action Cable, funcionalidade disponibilizada na versão 5 do rails e que nos ajudou a desenvolver um chat em tempo real de forma muito interessante. Segui esse tutorial abaixo para realizar o desenvolvimento, modificando o necessário para o nosso projeto e adicionando melhorias, como, por exemplo, limpar o campo de comentário após a inserção, criar o "layout" para o chat com barra de rolagem e incluir a informação de data e hora no comentário que já faz parte da tabela.
+Dica: no tutorial ele não cita a necessidade de ter a gem jquery-rails no seu gemfile, mas ela é necessária para que funcione e também incluir sua dependência //= require jquery no arquivo application.js que fica em app/assets/javascripts
+- http://onebitcode.com/como-criar-um-chat-em-tempo-real-usando-action-cable-rails-5/
+> Um "problema" de utilizar o Action Cable é que no Heroku, versão gratuita, não é possível acompanhar o chat em tempo real, você precisa comentar e atualizar a página para visualizar novos comentários, para usar em tempo real é preciso pagar pela conta. 
+
+## Chartkick 
+
+> Utilizei para geração dos gráficos e estátisticas a gem chartkick que é muito fácil de usar e possibilita gerar gráficos bonitos e bem feitos, de forma fácil e totalmente iterativa. Segue abaixo o link do site e o do github dos desenvolvedores dessa gem:
+- https://www.chartkick.com/
+- https://github.com/ankane/chartkick
+
+## Importando arquivo CSV
+
+> A funcionalidade de importação do arquivo CSV deu bastante trabalho, mas foi muito útil após finalizar. Com a importação do arquivo que pegamos no site de dados abertos, importamos e incluimos esses dados nas tabelas do banco da nossa aplicação. Assisti vários vídeos e li várias informações na internet para entender como funcionaria essa importação. Segue abaixo um link do youtube com um vídeo sobre o assunto, importante ressaltar que não usei só esse vídeo e foi preciso vários outros ajuste para contemplar o que eu precisei:
+- https://www.youtube.com/watch?v=W8pohTautj8
+
+> Dica: Sempre lembrar de colocar para o formato UTF-8.
+ 
  ## Outras dicas
  - Sempre que é chamado um gerador do rails, também são criados testes automáticos no Rspec, recomendamos que esses testes sejam excluídos ou revisados, tivemos alguns
  problemas com eles;
