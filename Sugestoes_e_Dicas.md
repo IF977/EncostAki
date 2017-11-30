@@ -71,9 +71,9 @@ Dica: no tutorial ele não cita a necessidade de ter a gem jquery-rails no seu g
  ## Outras dicas
  - Sempre que é chamado um gerador do rails, também são criados testes automáticos no Rspec, recomendamos que esses testes sejam excluídos ou revisados, tivemos alguns
  problemas com eles;
- - Não tenha medo de usar o C9, sempre que puder faça um clone!
+ - Não tenha medo de usar o C9, sempre que puder <b>faça um clone!</b>
  - Utilize bem das branchs e aprenda a utilizar bem o Github para não acabar perdendo pontos por desatenção;
- - Sempre, sempre, sempre utilize do Stack Overflow, garantimos que o seu problema não foi o primeiro da face da terra, ele estará lá resolvido em algum lugar, é so saber procurar :);
+ - <b>Sempre, sempre, sempre utilize do Stack Overflow</b>, garantimos que o seu problema não foi o primeiro da face da terra, ele estará lá resolvido em algum lugar, é so saber procurar :);
  - Recomendamos que no começo estudem o rails o mais rápido possível, a estrutura dele é amigável, mas para quem nunca trabalhou com uma framework assim
  pode ser tornar um pesadelo :( 
  
